@@ -157,7 +157,7 @@ class Notepad extends NotepadsAppModel {
  * @author   Shohei Nakajima <xxxxxxxxxxxxx@gmail.com>
  * @return   array Notepad
  */
-	public function getContent($blockId, $langId, $editable = false) {
+	public function getContent($blockId, $langId, $editable = 0) {
 		$conditions = array(
 			'block_id' => $blockId,
 			'language_id' => $langId,
