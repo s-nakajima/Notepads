@@ -32,7 +32,7 @@ NetCommonsApp.controller('Notepads',
        *
        * @const
        */
-      $scope.POST_FORM_URL = $scope.PLUGIN_URL + 'post/';
+      $scope.POST_FORM_URL = $scope.PLUGIN_URL + 'edit/';
 
       /**
        * Notepad
@@ -58,13 +58,18 @@ NetCommonsApp.controller('Notepads',
       /**
        * フォームの設定
        *
-       * @type {{display: boolean, title: string, content: content}}
+       * @type {{display: boolean,
+       *         title: string,
+       *         content: content,
+       *         button: boolean,
+       *         postHtml: string}}
        */
       $scope.Form = {
         'display': false,
         'title': '',
         'content': '',
-        'button': false
+        'button': false,
+        'postHtml': ''
       }
 
       /**
@@ -140,17 +145,25 @@ NetCommonsApp.controller('Notepads',
       $scope.postFormAttrId = '';
 
       /**
+       * post form area id attribute
+       *
+       * @type {sring}
+       */
+      $scope.postFormAreaAttrId = '';
+
+      /**
        * Initialize
        *
        * @return {void}
        */
       $scope.initialize = function(notepad, frameId, langId) {
-         $scope.notepad = notepad;
-         $scope.frameId = frameId;
-         $scope.langId = langId;
+        $scope.notepad = notepad;
+        $scope.frameId = frameId;
+        $scope.langId = langId;
 
-         $scope.inputFormAttrId = $scope.INPUT_FORM_ATTR_ID + $scope.frameId;
-         $scope.postFormAttrId = $scope.POST_FORM_ATTR_ID + $scope.frameId;
+        $scope.inputFormAttrId = $scope.INPUT_FORM_ATTR_ID + $scope.frameId;
+        $scope.postFormAttrId = $scope.POST_FORM_ATTR_ID + $scope.frameId;
+        $scope.postFormAreaAttrId = $scope.POST_FORM_ATTR_ID + 'area-' + $scope.frameId;
       };
 
       /**
@@ -215,25 +228,29 @@ NetCommonsApp.controller('Notepads',
        *     Approval: 公開申請
        *     Publish: 公開
        *
-       * @param {stirng} type
+       * @param {stirng} status
        * @return {void}
        */
       $scope.post = function(status) {
         $scope.sendLock = true;
 
-        $http.get($scope.GET_FORM_URL + $scope.frameId + '/' + Math.random())
+        $http.get($scope.GET_FORM_URL +
+              $scope.frameId + '/' +
+              $scope.langId + '/' + Math.random()
+            )
           .success(function(data, status, headers, config) {
               //POST用のフォームセット
-              $(postFormAttrId).html(data);
+              $($scope.postFormAreaAttrId).html(data);
 
               //ステータスのセット
-              $(postFormAttrId +
-                      ' select[name="data[Notepads][status]"]').val(type);
+              $($scope.postFormAttrId +
+                      ' select[name="data[Notepads][status]"]').val(status);
 
               var postParams = {};
               //POSTフォームのシリアライズ
               var i = 0;
-              var postSerialize = $(postFormAttrId + ' form').serializeArray();
+              var postSerialize =
+                      $($scope.postFormAttrId + ' form').serializeArray();
               var length = postSerialize.length;
               for (var i = 0; i < length; i++) {
                 postParams[postSerialize[i]['name']] =
@@ -242,7 +259,8 @@ NetCommonsApp.controller('Notepads',
 
               //入力フォームのシリアライズ
               var i = 0;
-              var inputSerialize = $(postFormAttrId + ' form').serializeArray();
+              var inputSerialize =
+                      $($scope.postFormAttrId + ' form').serializeArray();
               var length = inputSerialize.length;
               for (var i = 0; i < length; i++) {
                 postParams[inputSerialize[i]['name']] =

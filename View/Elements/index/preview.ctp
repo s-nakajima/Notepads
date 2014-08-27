@@ -11,7 +11,7 @@
  */
 ?>
 
-<div ng-show="Preview.display">
+<div class="ng-hide" ng-show="Preview.display">
 	<h3>{{Preview.title}}</h3>
 
 	<div>{{Preview.content}}</div>

@@ -46,6 +46,13 @@ class Notepad extends NotepadsAppModel {
 	const STATUS_PUBLISH = 1;
 
 /**
+ * Notepads status key publish
+ *
+ * @var string
+ */
+	const STATUS_KEY_PUBLISH = 'Publish';
+
+/**
  * Notepads status approval
  *
  * @var int
@@ -53,17 +60,39 @@ class Notepad extends NotepadsAppModel {
 	const STATUS_APPROVAL = 2;
 
 /**
- * Notepads status Draft
+ * Notepads status key approval
+ *
+ * @var string
+ */
+	const STATUS_KEY_APPROVAL = 'Approval';
+
+/**
+ * Notepads status draft
  *
  * @var int
  */
 	const STATUS_DRAFT = 3;
+
+/**
+ * Notepads status key draft
+ *
+ * @var string
+ */
+	const STATUS_KEY_DRAFT = 'Draft';
+
 /**
  * Notepads status disapproval
  *
  * @var int
  */
 	const STATUS_DISAPPROVAL = 4;
+
+/**
+ * Notepads status key disapproval
+ *
+ * @var string
+ */
+	const STATUS_KEY_DISAPPROVAL = 'Disapproval';
 
 /**
  * Validation rules
@@ -84,7 +113,7 @@ class Notepad extends NotepadsAppModel {
 				'message' => 'Security Error! Unauthorized input.',
 			),
 			'range' => array(
-				'rule' => array('range', 0, 4),
+				'rule' => array('range', 0, 5),
 				'message' => 'Security Error! Unauthorized input.',
 			),
 		),
@@ -116,7 +145,7 @@ class Notepad extends NotepadsAppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
+		),
 	);
 
 /**
@@ -140,6 +169,115 @@ class Notepad extends NotepadsAppModel {
 			'conditions' => $conditions,
 			'order' => $this->name . '.id DESC',
 		));
+	}
+
+/**
+ * get status
+ *
+ * @author   Shohei Nakajima <xxxxxxxxxxxxx@gmail.com>
+ * @return   array status
+ */
+	public function getStatus($key = '') {
+		$statusList = array(
+			STATUS_KEY_PUBLISH => STATUS_PUBLISH,
+			STATUS_KEY_APPROVAL => STATUS_APPROVAL,
+			STATUS_KEY_DRAFT => STATUS_DRAFT,
+			STATUS_KEY_DISAPPROVAL => STATUS_DISAPPROVAL,
+		);
+		if (! $key) {
+			return $statusList;
+		} else {
+			return $statusList[$key];
+		}
+	}
+
+/**
+ * save notepad
+ *
+ * @param array $data received post data
+ * @param int $frameId frames.id
+ * @param int $userId users.id
+ * @param int $roomId rooms.id
+ * @return array
+ */
+	public function saveContent($data, $frameId, $roomId) {
+		$models = array(
+			'Frames.Frame' => 'Frame',
+			'Block' => 'Block',
+			'Notepads.NotepadsBlock' => 'NotepadsBlock',
+			'Notepads.NotepadSetting' => 'NotepadSetting',
+		);
+		foreach ($models as $class => $model) {
+			$this->$model = ClassRegistry::init($class);
+			$this->$model->setDataSource('master');
+		}
+
+		$frameId = (int)$frameId;
+		$userId = (int)$userId;
+		$roomId = (int)$roomId;
+		if (! $data || ! $frameId || ! $roomId) {
+			return null;
+		}
+		//frameID chaeck
+		if (! isset($data[$this->name]['frameId']) ||
+			$frameId !== (int)$data[$this->name]['frameId']) {
+			return null;
+		}
+
+		//ブロックID取得
+		$frame = $this->Frame->findById($frameId);
+		if (! $frame) {
+			return null;
+		}
+		$blockId = $frame[$this->Frame->name]['block_id'];
+
+		//DBへの登録
+		$dataSource = $this->getDataSource();
+		$dataSource->begin();
+		try {
+			if (! $blockId) {
+				//blocksテーブル登録
+				$block = array();
+				$block[$this->Block->name]['room_id'] = $roomId;
+				$block[$this->Block->name]['created_user'] = CakeSession::read('Auth.User.id');
+				$block = $this->Block->save($block);
+
+				//framesテーブル更新
+				$frame[$this->Frame->name]['block_id'] = $notepadBlock[$this->NotepadsBlock->name]['id'];
+				$frame = $this->Frame->save($frame);
+
+				//notepads_blocksテーブル登録
+				$notepadsBlock = array();
+				$notepadsBlock[$this->NotepadsBlock->name]['block_id'] = $block[$this->Block->name]['id'];
+				$notepadsBlock[$this->NotepadsBlock->name]['created_user'] = CakeSession::read('Auth.User.id');
+				$notepadsBlock = $this->NotepadsBlock->save($notepadsBlock);
+
+				//notepad_settingsテーブル登録
+				$notepadSetting = array();
+				$notepadSetting[$this->NotepadSetting->name]['notepads_block_id'] = $block[$this->Block->name]['id'];
+				$notepadSetting[$this->NotepadSetting->name]['created_user'] = CakeSession::read('Auth.User.id');
+				$notepadSetting = $this->NotepadSetting->save($notepadSetting);
+			}
+
+			//notepadsテーブル登録
+			$insertData = array();
+			$insertData[$this->name]['notepads_block_id'] = $blockId;
+			$insertData[$this->name]['created_user'] = CakeSession::read('Auth.User.id');
+			$insertData[$this->name]['language_id'] = $data[$this->name]['language_id'];
+			$insertData[$this->name]['status'] = $this->getStatus($data[$this->name]['status']);
+			$insertData[$this->name]['title'] = $data[$this->name]['title'];
+			$insertData[$this->name]['content'] = $data[$this->name]['content'];
+
+			//保存結果を返す
+			$insertData = $this->save($insertData);
+
+			$dataSource->commit();
+		} catch (Exception $ex) {
+			CakeLog::error($e->getTraceAsString());
+			$dataSource->rollback();
+			return false;
+		}
+		return $insertData;
 	}
 
 }

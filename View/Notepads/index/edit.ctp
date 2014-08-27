@@ -44,4 +44,6 @@
 		echo $this->element('index/form_button');
 	?>
 
+	<div class="ng-hide">{{Form.postHtml}}</div>
+
 </div>
