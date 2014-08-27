@@ -68,7 +68,7 @@ NetCommonsApp.controller('Notepads',
         'title': '',
         'content': '',
         'button': false
-      }
+      };
 
       /**
        * プレビューの設定
@@ -81,7 +81,7 @@ NetCommonsApp.controller('Notepads',
         'content': '',
         'label': false,
         'button': false
-      }
+      };
 
       /**
        * コンテンツの状態設定
@@ -105,7 +105,7 @@ NetCommonsApp.controller('Notepads',
         'display': false,
         'class': '',
         'message': ''
-      }
+      };
 
       /**
        * ヘッダーボタン
@@ -160,7 +160,8 @@ NetCommonsApp.controller('Notepads',
 
         $scope.inputFormAttrId = $scope.INPUT_FORM_ATTR_ID + $scope.frameId;
         $scope.postFormAttrId = $scope.POST_FORM_ATTR_ID + $scope.frameId;
-        $scope.postFormAreaAttrId = $scope.POST_FORM_ATTR_ID + 'area-' + $scope.frameId;
+        $scope.postFormAreaAttrId = $scope.POST_FORM_ATTR_ID +
+                'area-' + $scope.frameId;
       };
 
       /**
@@ -234,9 +235,8 @@ NetCommonsApp.controller('Notepads',
         $scope.sendLock = true;
 
         $http.get($scope.GET_FORM_URL +
-              $scope.frameId + '/' +
-              $scope.notepad.Notepad.language_id + '/' + Math.random()
-            )
+                $scope.frameId + '/' +
+                $scope.notepad.Notepad.language_id + '/' + Math.random())
           .success(function(data, status, headers, config) {
               //POST用のフォームセット
               $($scope.postFormAreaAttrId).html(data);
@@ -248,21 +248,21 @@ NetCommonsApp.controller('Notepads',
               //POSTフォームのシリアライズ
               var i = 0;
               var postSerialize =
-                      $($scope.postFormAttrId).serializeArray();
+                        $($scope.postFormAttrId).serializeArray();
               var length = postSerialize.length;
               for (var i = 0; i < length; i++) {
                 postParams[postSerialize[i]['name']] =
-                                            postSerialize[i]['value'];
+                                         postSerialize[i]['value'];
               }
 
               //入力フォームのシリアライズ
               var i = 0;
               var inputSerialize =
-                      $($scope.inputFormAttrId).serializeArray();
+                        $($scope.inputFormAttrId).serializeArray();
               var length = inputSerialize.length;
               for (var i = 0; i < length; i++) {
                 postParams[inputSerialize[i]['name']] =
-                                            inputSerialize[i]['value'];
+                                         inputSerialize[i]['value'];
               }
 
               //登録情報をPOST
@@ -283,9 +283,8 @@ NetCommonsApp.controller('Notepads',
        */
       $scope.sendPost = function(postParams) {
         $http.post(
-              $scope.POST_FORM_URL + $scope.frameId + '/' + Math.random(),
-              postParams
-            )
+            $scope.POST_FORM_URL + $scope.frameId + '/' + Math.random(),
+            postParams)
           .success(function(data, status, headers, config) {
               $scope.notepad = data.notepad;
               $scope.showResult('success', data.message);

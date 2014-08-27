@@ -174,6 +174,7 @@ class Notepad extends NotepadsAppModel {
 /**
  * get status
  *
+ * @param string $key status key
  * @author   Shohei Nakajima <xxxxxxxxxxxxx@gmail.com>
  * @return   array status
  */
@@ -196,9 +197,8 @@ class Notepad extends NotepadsAppModel {
  *
  * @param array $data received post data
  * @param int $frameId frames.id
- * @param int $userId users.id
  * @param int $roomId rooms.id
- * @return array
+ * @return mixed
  */
 	public function saveContent($data, $frameId, $roomId) {
 		$models = array(
@@ -243,7 +243,7 @@ class Notepad extends NotepadsAppModel {
 				$block = $this->Block->save($block);
 
 				//framesテーブル更新
-				$frame[$this->Frame->name]['block_id'] = $notepadBlock[$this->NotepadsBlock->name]['id'];
+				$frame[$this->Frame->name]['block_id'] = $block[$this->Block->name]['id'];
 				$frame = $this->Frame->save($frame);
 
 				//notepads_blocksテーブル登録
@@ -273,7 +273,7 @@ class Notepad extends NotepadsAppModel {
 
 			$dataSource->commit();
 		} catch (Exception $ex) {
-			CakeLog::error($e->getTraceAsString());
+			CakeLog::error($ex->getTraceAsString());
 			$dataSource->rollback();
 			return false;
 		}

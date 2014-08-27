@@ -103,6 +103,7 @@ class NotepadsController extends NotepadsAppController {
  * get edit form
  *
  * @param int $frameId frames.id
+ * @param int $langId languages.id
  * @author   Shohei Nakajima <nakajimashouhei@gmail.com>
  * @return   CakeResponse
  */
