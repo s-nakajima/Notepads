@@ -21,8 +21,7 @@
 
 <div ng-controller="Notepads"
    ng-init="initialize(<?php echo h(json_encode($notepad)); ?>,
-				<?php echo (int)$frameId; ?>,
-				<?php echo (int)$langId; ?>)">
+				<?php echo (int)$frameId; ?>)">
 	<?php
 		//状態の表示
 		echo $this->element('index/status_label');

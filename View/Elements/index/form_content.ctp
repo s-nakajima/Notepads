@@ -12,7 +12,7 @@
 ?>
 
 <form method="post" accept-charset="utf-8" class="ng-hide"
-	  id="nc-notepads-input-form-<?php echo (int)$formId; ?>"
+	  id="nc-notepads-input-form-<?php echo (int)$frameId; ?>"
 	  ng-show="Form.display" onsubmit="event.returnValue = false; return false;">
 
 	<div class='form-group'>

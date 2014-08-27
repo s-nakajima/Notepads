@@ -11,8 +11,6 @@
  */
 ?>
 
-<div id="nc-notepads-post-form-area-<?php echo (int)$frameId; ?>">
-
 <?php
 	echo $this->Form->create(null, array('id' => 'nc-notepads-post-form-' . $frameId));
 
@@ -62,6 +60,3 @@
 		);
 
 	echo $this->Form->end();
-?>
-
-</div>

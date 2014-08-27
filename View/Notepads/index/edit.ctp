@@ -14,8 +14,7 @@
 
 <div ng-controller="Notepads"
 	 ng-init="initialize(<?php echo h(json_encode($notepad)); ?>,
-				<?php echo (int)$frameId; ?>,
-				<?php echo (int)$langId; ?>)">
+				<?php echo (int)$frameId; ?>)">
 
 	<?php
 		//ヘッダーボタン(ブロック設定、編集、公開する)の表示
@@ -44,6 +43,9 @@
 		echo $this->element('index/form_button');
 	?>
 
-	<div class="ng-hide">{{Form.postHtml}}</div>
-
+	<div class="hidden" id="nc-notepads-post-form-area-<?php echo (int)$frameId; ?>">
+		<?php
+			//登録POST用のフォーム
+		?>
+	</div>
 </div>

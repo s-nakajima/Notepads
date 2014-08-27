@@ -61,15 +61,13 @@ NetCommonsApp.controller('Notepads',
        * @type {{display: boolean,
        *         title: string,
        *         content: content,
-       *         button: boolean,
-       *         postHtml: string}}
+       *         button: boolean}}
        */
       $scope.Form = {
         'display': false,
         'title': '',
         'content': '',
-        'button': false,
-        'postHtml': ''
+        'button': false
       }
 
       /**
@@ -121,7 +119,7 @@ NetCommonsApp.controller('Notepads',
        *
        * @const
        */
-      $scope.INPUT_FORM_ATTR_ID = 'nc-notepads-input-form-';
+      $scope.INPUT_FORM_ATTR_ID = '#nc-notepads-input-form-';
 
       /**
        * input form id attribute
@@ -135,7 +133,7 @@ NetCommonsApp.controller('Notepads',
        *
        * @const
        */
-      $scope.POST_FORM_ATTR_ID = 'nc-notepads-post-form-';
+      $scope.POST_FORM_ATTR_ID = '#nc-notepads-post-form-';
 
       /**
        * post form id attribute
@@ -156,10 +154,9 @@ NetCommonsApp.controller('Notepads',
        *
        * @return {void}
        */
-      $scope.initialize = function(notepad, frameId, langId) {
+      $scope.initialize = function(notepad, frameId) {
         $scope.notepad = notepad;
         $scope.frameId = frameId;
-        $scope.langId = langId;
 
         $scope.inputFormAttrId = $scope.INPUT_FORM_ATTR_ID + $scope.frameId;
         $scope.postFormAttrId = $scope.POST_FORM_ATTR_ID + $scope.frameId;
@@ -181,6 +178,8 @@ NetCommonsApp.controller('Notepads',
         $scope.Preview.label = false;
 
         $scope.dipslayHeaderBtn = false;
+
+        $($scope.postFormAreaAttrId).html(' ');
       };
 
       /**
@@ -231,26 +230,25 @@ NetCommonsApp.controller('Notepads',
        * @param {stirng} status
        * @return {void}
        */
-      $scope.post = function(status) {
+      $scope.post = function(postStatus) {
         $scope.sendLock = true;
 
         $http.get($scope.GET_FORM_URL +
               $scope.frameId + '/' +
-              $scope.langId + '/' + Math.random()
+              $scope.notepad.Notepad.language_id + '/' + Math.random()
             )
           .success(function(data, status, headers, config) {
               //POST用のフォームセット
               $($scope.postFormAreaAttrId).html(data);
-
               //ステータスのセット
               $($scope.postFormAttrId +
-                      ' select[name="data[Notepads][status]"]').val(status);
+                      ' select[name="data[Notepad][status]"]').val(postStatus);
 
               var postParams = {};
               //POSTフォームのシリアライズ
               var i = 0;
               var postSerialize =
-                      $($scope.postFormAttrId + ' form').serializeArray();
+                      $($scope.postFormAttrId).serializeArray();
               var length = postSerialize.length;
               for (var i = 0; i < length; i++) {
                 postParams[postSerialize[i]['name']] =
@@ -260,7 +258,7 @@ NetCommonsApp.controller('Notepads',
               //入力フォームのシリアライズ
               var i = 0;
               var inputSerialize =
-                      $($scope.postFormAttrId + ' form').serializeArray();
+                      $($scope.inputFormAttrId).serializeArray();
               var length = inputSerialize.length;
               for (var i = 0; i < length; i++) {
                 postParams[inputSerialize[i]['name']] =

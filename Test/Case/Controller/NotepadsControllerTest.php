@@ -30,6 +30,15 @@ class NotepadsControllerTest extends ControllerTestCase {
 		'app.Session',
 		'app.SiteSetting',
 		'app.SiteSettingValue',
+		'plugin.notepads.notepad',
+		'plugin.notepads.frame',
+		'plugin.notepads.frames_language',
+		'plugin.notepads.box',
+		'plugin.notepads.plugin',
+		'plugin.notepads.parts_rooms_user',
+		'plugin.notepads.room',
+		'plugin.notepads.user',
+		'plugin.notepads.room_part',
 	);
 
 /**

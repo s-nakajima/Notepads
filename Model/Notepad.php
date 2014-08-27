@@ -179,10 +179,10 @@ class Notepad extends NotepadsAppModel {
  */
 	public function getStatus($key = '') {
 		$statusList = array(
-			STATUS_KEY_PUBLISH => STATUS_PUBLISH,
-			STATUS_KEY_APPROVAL => STATUS_APPROVAL,
-			STATUS_KEY_DRAFT => STATUS_DRAFT,
-			STATUS_KEY_DISAPPROVAL => STATUS_DISAPPROVAL,
+			self::STATUS_KEY_PUBLISH => self::STATUS_PUBLISH,
+			self::STATUS_KEY_APPROVAL => self::STATUS_APPROVAL,
+			self::STATUS_KEY_DRAFT => self::STATUS_DRAFT,
+			self::STATUS_KEY_DISAPPROVAL => self::STATUS_DISAPPROVAL,
 		);
 		if (! $key) {
 			return $statusList;
