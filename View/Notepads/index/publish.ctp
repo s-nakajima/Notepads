@@ -11,9 +11,9 @@
  */
 ?>
 
-<p>
+<div>
 	<?php
 		//本文の表示
 		echo $this->element('index/notepad');
 	?>
-</p>
+</div>

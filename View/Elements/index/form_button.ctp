@@ -11,35 +11,35 @@
  */
 ?>
 
-<p class="text-center" ng-show="View.setting">
+<div class="text-center ng-hide" ng-show="Form.button">
 	<button class="btn btn-default"
 			ng-disabled="sendLock" ng-click="hideSetting()">
 		<span> <?php echo __('Cancel'); ?> </span>
 	</button>
 
 	<button class="btn btn-default"
-			ng-click="showPreview()" ng-hide="View.previewing" ng-disabled="sendLock">
+			ng-click="showPreview()" ng-hide="Preview.display" ng-disabled="sendLock">
 
 		<span class="glyphicon glyphicon-file"></span>
 		<span><?php echo __('Preview'); ?></span>
 	</button>
 
 	<button class="btn btn-default"
-			ng-click="hidePreview()" ng-show="View.previewing" ng-disabled="sendLock">
+			ng-click="hidePreview()" ng-show="Preview.display" ng-disabled="sendLock">
 
 		<span class="glyphicon glyphicon-file"></span>
 		<span><?php echo __('Close Preview'); ?></span>
 	</button>
 
 	<button class="btn btn-default"
-			ng-click="post('Draft')" ng-hide="label.approval" ng-disabled="sendLock">
+			ng-click="post('Draft')" ng-hide="Label.approval" ng-disabled="sendLock">
 
 		<span class="glyphicon glyphicon-pencil"></span>
 		<span><?php echo __('Draft'); ?></span>
 	</button>
 
 	<button class="btn btn-default"
-			ng-click="post('disapproval')" ng-show="label.approval" ng-disabled="sendLock">
+			ng-click="post('disapproval')" ng-show="Label.approval" ng-disabled="sendLock">
 
 		<span class="glyphicon glyphicon-pencil"></span>
 		<span><?php echo __('Disapproval'); ?></span>
@@ -59,4 +59,4 @@
 			<span><?php echo __('Publish'); ?></span>
 		</button>
 	<?php endif; ?>
-</p>
+</div>

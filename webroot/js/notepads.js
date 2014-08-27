@@ -14,28 +14,71 @@ NetCommonsApp.controller('Notepads',
                          function($scope , $http, $sce, $timeout) {
 
       /**
+       * プラグインURL
+       *
+       * @const
+       */
+      $scope.PLUGIN_URL = '/notepads/notepads/';
+
+      /**
+       * form url
+       *
+       * @const
+       */
+      $scope.GET_FORM_URL = $scope.PLUGIN_URL + 'form/';
+
+      /**
+       * post url
+       *
+       * @const
+       */
+      $scope.POST_FORM_URL = $scope.PLUGIN_URL + 'post/';
+
+      /**
        * Notepad
        *
        * @type {Object.<string>}
        */
       $scope.notepad = {};
 
-    /**
-     * frame id
-     *
-     * @type {number}
-     */
-    $scope.frameId = 0;
+      /**
+       * frame id
+       *
+       * @type {number}
+       */
+      $scope.frameId = 0;
 
-    /**
-     * 表示の設定
-     *
-     * @type {{setting: boolean, previewing: boolean}}
-     */
-   $scope.View = {
-    'setting': false,
-    'previewing': false
-   }
+      /**
+       * ヘッダーボタン
+       *
+       * @type {boolean}
+       */
+      $scope.dipslayHeaderBtn = true;
+
+      /**
+       * フォームの設定
+       *
+       * @type {{display: boolean, title: string, content: content}}
+       */
+      $scope.Form = {
+        'display': false,
+        'title': '',
+        'content': '',
+        'button': false
+      }
+
+      /**
+       * プレビューの設定
+       *
+       * @type {{display: boolean, title: string, content: content}}
+       */
+      $scope.Preview = {
+        'display': false,
+        'title': '',
+        'content': '',
+        'label': false,
+        'button': false
+      }
 
       /**
        * コンテンツの状態設定
@@ -43,12 +86,58 @@ NetCommonsApp.controller('Notepads',
        *
        * @type {{publish: boolean, approval: boolean, draft: boolean, disapproval: boolean}}
        */
-      $scope.label = {
+      $scope.Label = {
         'publish' : false,
         'approval' : false,
         'draft' : false,
         'disapproval' : false
       };
+
+      /**
+       * 実行結果の設定
+       *
+       * @type {{display: boolean, title: string, content: string}}
+       */
+      $scope.Result = {
+        'display': false,
+        'class': '',
+        'message': ''
+      }
+
+      /**
+       * ヘッダーボタン
+       *
+       * @type {boolean}
+       */
+      $scope.sendLock = false;
+
+      /**
+       * input form id attribute
+       *
+       * @const
+       */
+      $scope.INPUT_FORM_ATTR_ID = 'nc-notepads-input-form-';
+
+      /**
+       * input form id attribute
+       *
+       * @type {sring}
+       */
+      $scope.inputFormAttrId = '';
+
+      /**
+       * post form id attribute
+       *
+       * @const
+       */
+      $scope.POST_FORM_ATTR_ID = 'nc-notepads-post-form-';
+
+      /**
+       * post form id attribute
+       *
+       * @type {sring}
+       */
+      $scope.postFormAttrId = '';
 
       /**
        * Initialize
@@ -59,6 +148,9 @@ NetCommonsApp.controller('Notepads',
          $scope.notepad = notepad;
          $scope.frameId = frameId;
          $scope.langId = langId;
+
+         $scope.inputFormAttrId = $scope.INPUT_FORM_ATTR_ID + $scope.frameId;
+         $scope.postFormAttrId = $scope.POST_FORM_ATTR_ID + $scope.frameId;
       };
 
       /**
@@ -67,47 +159,148 @@ NetCommonsApp.controller('Notepads',
        * @return {void}
        */
       $scope.showSetting = function() {
-        //$('#nc-block-setting-' + $scope.frameId).modal('show');
+        $scope.Form.display = true;
+        $scope.Form.button = true;
+        $scope.Form.title = $scope.notepad.Notepad.title;
+        $scope.Form.content = $scope.notepad.Notepad.content;
+
+        $scope.Preview.display = false;
+        $scope.Preview.label = false;
+
+        $scope.dipslayHeaderBtn = false;
       };
 
-    /**
-     * 各ボタン処理
-     *     Cancel: 閉じる
-     *     Preview: プレビュー
-     *     PreviewClose: プレビューの終了
-     *     Draft: 下書き
-     *     Reject: 差し戻し
-     *     PublishRequest: 公開申請
-     *     Publish: 公開
-     *
-     * @param {stirng} type
-     * @return {void}
-     */
-    $scope.post = function(status) {
-//      //idセット
-//      $scope.setId(frameId, blockId, dataId);
-//
-//      //閉じる
-//      if (type === 'Cancel') {
-//        $scope.closeEditForm(frameId);
-//        return;
-//      }
-//      //プレビュー
-//      if (type === 'Preview') {
-//        $scope.showPreview();
-//        return;
-//      }
-//      //プレビューの終了
-//      if (type === 'PreviewClose') {
-//        $scope.closePreview();
-//        return;
-//      }
-//
-//      /** todo:非同期通信中のボタン無効化 */
-//
-//      //上記以外
-//      $scope.sendPost(type, blockId, dataId);
-    };
+      /**
+       * プレビューを表示する。
+       *
+       * @return {void}
+       */
+      $scope.showPreview = function() {
+        $scope.Form.display = false;
+        $scope.Preview.display = true;
+        $scope.Preview.label = true;
+
+        $scope.Preview.title = $scope.Form.title;
+        $scope.Preview.content = $scope.Form.content;
+      };
+
+      /**
+       * 設定フォームを終了する。
+       *
+       * @return {void}
+       */
+      $scope.hideSetting = function() {
+        $scope.Form.display = false;
+        $scope.Form.button = false;
+        $scope.Preview.display = false;
+        $scope.Preview.label = false;
+        $scope.dipslayHeaderBtn = true;
+      };
+
+      /**
+       * プレビューを終了する。
+       *
+       * @return {void}
+       */
+      $scope.hidePreview = function() {
+        $scope.Form.display = true;
+        $scope.Preview.display = false;
+        $scope.Preview.label = false;
+      };
+
+      /**
+       * 各ボタン処理
+       *     Draft: 下書き
+       *     Disapproval: 差し戻し
+       *     Approval: 公開申請
+       *     Publish: 公開
+       *
+       * @param {stirng} type
+       * @return {void}
+       */
+      $scope.post = function(status) {
+        $scope.sendLock = true;
+
+        $http.get($scope.GET_FORM_URL + $scope.frameId + '/' + Math.random())
+          .success(function(data, status, headers, config) {
+              //POST用のフォームセット
+              $(postFormAttrId).html(data);
+
+              //ステータスのセット
+              $(postFormAttrId +
+                      ' select[name="data[Notepads][status]"]').val(type);
+
+              var postParams = {};
+              //POSTフォームのシリアライズ
+              var i = 0;
+              var postSerialize = $(postFormAttrId + ' form').serializeArray();
+              var length = postSerialize.length;
+              for (var i = 0; i < length; i++) {
+                postParams[postSerialize[i]['name']] =
+                                            postSerialize[i]['value'];
+              }
+
+              //入力フォームのシリアライズ
+              var i = 0;
+              var inputSerialize = $(postFormAttrId + ' form').serializeArray();
+              var length = inputSerialize.length;
+              for (var i = 0; i < length; i++) {
+                postParams[inputSerialize[i]['name']] =
+                                            inputSerialize[i]['value'];
+              }
+
+              //登録情報をPOST
+              $scope.sendPost(postParams);
+            })
+          .error(function(data, status, headers, config) {
+              //keyの取得に失敗
+              if (! data) { data = 'error'; }
+              $scope.showResult('error', data);
+            });
+      };
+
+      /**
+       * 登録処理
+       *
+       * @param {Object.<string>} postParams
+       * @return {void}
+       */
+      $scope.sendPost = function(postParams) {
+        $http.post(
+              $scope.POST_FORM_URL + $scope.frameId + '/' + Math.random(),
+              postParams
+            )
+          .success(function(data, status, headers, config) {
+              $scope.notepad = data.notepad;
+              $scope.showResult('success', data.message);
+            })
+          .error(function(data, status, headers, config) {
+              if (! data.message) {
+                $scope.showResult('error', headers);
+              } else {
+                $scope.showResult('error', data.message);
+              }
+            });
+      };
+
+      /**
+       * メッセージ（実行結果）を表示
+       *
+       * @param {stirng} type
+       * @param {stirng} text
+       * @return {void}
+       */
+      $scope.showResult = function(type, message) {
+        if (type == 'error') {
+          $scope.Result.class = 'alert-danger';
+        }
+        if (type == 'success') {
+          $scope.Result.class = 'alert-success';
+        }
+
+        $scope.Result.message = message;
+        $scope.sendLock = false;
+      };
 
       /**
        * ブロック設定のモーダルを表示させる。

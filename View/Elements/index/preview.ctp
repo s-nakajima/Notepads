@@ -11,8 +11,8 @@
  */
 ?>
 
-<p>
-	<h3><?php echo h($notepad['Notepad']['title']); ?></h3>
+<div ng-show="Preview.display">
+	<h3>{{Preview.title}}</h3>
 
-	<p><?php echo h($notepad['Notepad']['content']); ?></p>
-</p>
+	<div>{{Preview.content}}</div>
+</div>

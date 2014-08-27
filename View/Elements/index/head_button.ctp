@@ -11,7 +11,7 @@
  */
 ?>
 
-<p class="text-right" ng-hide="View.isSetting">
+<div class="text-right" ng-show="dipslayHeaderBtn">
 	<?php if ($blockEditable) : ?>
 		<button class="btn btn-default ng-disabled"
 				ng-click="showBlockSetting()" ng-disabled="sendLock">
@@ -32,11 +32,11 @@
 
 	<?php if ($contentPublishable) : ?>
 		<button class="btn btn-danger ng-hide"
-				ng-show="label.approval" ng-click="post('Publish')" ng-disabled="sendLock">
+				ng-show="Label.approval" ng-click="post('Publish')" ng-disabled="sendLock">
 			<span class="glyphicon glyphicon-share-alt">
 				<?php echo __('Publish'); ?>
 			</span>
 		</button>
 	<?php endif; ?>
-</p>
+</div>
 

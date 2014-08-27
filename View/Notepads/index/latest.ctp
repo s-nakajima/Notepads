@@ -12,19 +12,19 @@
 ?>
 <?php echo $this->Html->script("/notepads/js/notepads.js"); ?>
 
-<p>
+<div>
 	<?php
 		//本文の表示
 		echo $this->element('index/notepad');
 	?>
-</p>
+</div>
 
-<p ng-controller="Notepads"
+<div ng-controller="Notepads"
    ng-init="initialize(<?php echo h(json_encode($notepad)); ?>,
-						<?php echo (int)$frameId; ?>,
-						<?php echo (int)$langId; ?>)">
+				<?php echo (int)$frameId; ?>,
+				<?php echo (int)$langId; ?>)">
 	<?php
 		//状態の表示
 		echo $this->element('index/status_label');
 	?>
-</p>
+</div>

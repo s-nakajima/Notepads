@@ -14,31 +14,34 @@
 
 <div ng-controller="Notepads"
 	 ng-init="initialize(<?php echo h(json_encode($notepad)); ?>,
-						<?php echo (int)$frameId; ?>,
-						<?php echo (int)$langId; ?>)">
+				<?php echo (int)$frameId; ?>,
+				<?php echo (int)$langId; ?>)">
 
+	<?php
+		//ヘッダーボタン(ブロック設定、編集、公開する)の表示
+		echo $this->element('index/head_button');
+	?>
 
-	<p>
-		<?php
-			//ヘッダーボタン(ブロック設定、編集、公開する)の表示
-			echo $this->element('index/head_button');
-		?>
-	</p>
-
-	<p ng-show="View.setting">
+	<div ng-hide="Form.display">
 		<?php
 			//本文の表示
 			echo $this->element('index/notepad');
 		?>
-	</p>
+	</div>
 
-	<p ng-show="View.previewing" id=""></p>
 
-	<p>
-		<?php
-			//状態ラベルの表示
-			echo $this->element('index/status_label');
-		?>
-	</p>
+	<?php
+		//プレビューの表示
+		echo $this->element('index/preview');
+
+		//状態ラベルの表示
+		echo $this->element('index/status_label');
+
+		//入力フォームの表示
+		echo $this->element('index/form_content');
+
+		//入力フォームのボタン表示
+		echo $this->element('index/form_button');
+	?>
 
 </div>
