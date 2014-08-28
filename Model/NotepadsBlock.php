@@ -71,7 +71,7 @@ class NotepadsBlock extends NotepadsAppModel {
 	public $hasMany = array(
 		'Notepad' => array(
 			'className' => 'Notepad',
-			'foreignKey' => 'notepads_block_id',
+			'foreignKey' => 'notepad_block_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
@@ -84,7 +84,7 @@ class NotepadsBlock extends NotepadsAppModel {
 		),
 		'NotepadPartSetting' => array(
 			'className' => 'NotepadPartSetting',
-			'foreignKey' => 'notepads_block_id',
+			'foreignKey' => 'notepad_block_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
@@ -97,7 +97,7 @@ class NotepadsBlock extends NotepadsAppModel {
 		),
 		'NotepadSetting' => array(
 			'className' => 'NotepadSetting',
-			'foreignKey' => 'notepads_block_id',
+			'foreignKey' => 'notepad_block_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',

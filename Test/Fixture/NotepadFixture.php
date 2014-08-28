@@ -26,7 +26,7 @@ class NotepadFixture extends CakeTestFixture {
  */
 	public $fields = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
-		'notepads_block_id' => array('type' => 'integer', 'null' => false, 'default' => null),
+		'notepad_block_id' => array('type' => 'integer', 'null' => false, 'default' => null),
 		'status' => array('type' => 'integer', 'null' => false, 'default' => '1', 'length' => 3),
 		'language_id' => array('type' => 'integer', 'null' => false, 'default' => '1'),
 		'title' => array('type' => 'string', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
@@ -50,7 +50,7 @@ class NotepadFixture extends CakeTestFixture {
 	public $records = array(
 		array(
 			'id' => 1,
-			'notepads_block_id' => 1,
+			'notepad_block_id' => 1,
 			'status' => 1,
 			'language_id' => 1,
 			'title' => 'Lorem ipsum dolor sit amet',

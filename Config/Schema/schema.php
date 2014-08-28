@@ -56,7 +56,7 @@ class NotepadsSchema extends CakeSchema {
  */
 	public $notepads = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
-		'notepads_block_id' => array('type' => 'integer', 'null' => false, 'default' => null),
+		'notepad_block_id' => array('type' => 'integer', 'null' => false, 'default' => null),
 		'status' => array('type' => 'integer', 'null' => false, 'default' => '0', 'length' => 3),
 		'language_id' => array('type' => 'integer', 'null' => false, 'default' => '2'),
 		'is_auto_translation' => array('type' => 'boolean', 'null' => false, 'default' => 1, 'length' => 1),
@@ -100,7 +100,7 @@ class NotepadsSchema extends CakeSchema {
  */
 	public $notepad_settings = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
-		'notepads_block_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'unique'),
+		'notepad_block_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'unique'),
 		'created_user' => array('type' => 'integer', 'null' => true, 'default' => null),
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => null),
 		'modified_user' => array('type' => 'integer', 'null' => true, 'default' => null),
@@ -119,7 +119,7 @@ class NotepadsSchema extends CakeSchema {
  */
 	public $notepad_part_settings = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
-		'notepads_block_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'unique'),
+		'notepad_block_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'unique'),
 		'part_id' => array('type' => 'integer', 'null' => false, 'default' => '0'),
 		'readable_content' => array('type' => 'boolean', 'null' => false, 'default' => false),
 		'editable_content' => array('type' => 'boolean', 'null' => false, 'default' => false),

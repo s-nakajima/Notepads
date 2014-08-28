@@ -131,7 +131,7 @@ class NotepadsController extends NotepadsAppController {
 		if (! $notepad) {
 			$notepad = $this->Notepad->create();
 			$notepad[$this->Notepad->name]['language_id'] = $langId;
-			$notepad[$this->Notepad->name]['notepads_block_id'] = $this->viewVars['blockId'];
+			$notepad[$this->Notepad->name]['notepad_block_id'] = $this->viewVars['blockId'];
 		}
 		$this->set('notepad', $notepad);
 

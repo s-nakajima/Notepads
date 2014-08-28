@@ -22,9 +22,9 @@
 		);
 
 	//NotepadブロックID
-	echo $this->Form->input('Notepad.notepads_block_id', array(
+	echo $this->Form->input('Notepad.notepad_block_id', array(
 				'type' => 'hidden',
-				'value' => (int)$notepad['Notepad']['notepads_block_id'],
+				'value' => (int)$notepad['Notepad']['notepad_block_id'],
 			)
 		);
 

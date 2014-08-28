@@ -26,7 +26,7 @@ class NotepadPartSettingFixture extends CakeTestFixture {
  */
 	public $fields = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
-		'notepads_block_id' => array('type' => 'integer', 'null' => false, 'default' => null),
+		'notepad_block_id' => array('type' => 'integer', 'null' => false, 'default' => null),
 		'part_id' => array('type' => 'integer', 'null' => false, 'default' => '0'),
 		'read_content' => array('type' => 'integer', 'null' => false, 'default' => '0', 'length' => 2),
 		'edit_content' => array('type' => 'integer', 'null' => false, 'default' => '0', 'length' => 2),
@@ -51,7 +51,7 @@ class NotepadPartSettingFixture extends CakeTestFixture {
 	public $records = array(
 		array(
 			'id' => 1,
-			'notepads_block_id' => 1,
+			'notepad_block_id' => 1,
 			'part_id' => 1,
 			'read_content' => 1,
 			'edit_content' => 1,

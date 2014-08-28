@@ -41,7 +41,7 @@ class NotepadPartSetting extends NotepadsAppModel {
  * @var     array
  */
 	public $validate = array(
-		'notepads_block_id' => array(
+		'notepad_block_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				'message' => 'Security Error! Unauthorized input.',
@@ -104,7 +104,7 @@ class NotepadPartSetting extends NotepadsAppModel {
 	public $belongsTo = array(
 		'NotepadsBlock' => array(
 			'className' => 'NotepadsBlock',
-			'foreignKey' => 'notepads_block_id',
+			'foreignKey' => 'notepad_block_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

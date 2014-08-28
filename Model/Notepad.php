@@ -101,7 +101,7 @@ class Notepad extends NotepadsAppModel {
  * @var     array
  */
 	public $validate = array(
-		'notepads_block_id' => array(
+		'notepad_block_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				'message' => 'Security Error! Unauthorized input.',
@@ -134,7 +134,7 @@ class Notepad extends NotepadsAppModel {
 	public $belongsTo = array(
 		'NotepadsBlock' => array(
 			'className' => 'NotepadsBlock',
-			'foreignKey' => 'notepads_block_id',
+			'foreignKey' => 'notepad_block_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
@@ -159,7 +159,7 @@ class Notepad extends NotepadsAppModel {
  */
 	public function getContent($blockId, $langId, $editable = 0) {
 		$conditions = array(
-			'notepads_block_id' => $blockId,
+			'notepad_block_id' => $blockId,
 			'language_id' => $langId,
 		);
 		if (! $editable) {
@@ -253,14 +253,14 @@ class Notepad extends NotepadsAppModel {
 
 				//notepad_settingsテーブル登録
 				$notepadSetting = array();
-				$notepadSetting[$this->NotepadSetting->name]['notepads_block_id'] = $block[$this->Block->name]['id'];
+				$notepadSetting[$this->NotepadSetting->name]['notepad_block_id'] = $block[$this->Block->name]['id'];
 				$notepadSetting[$this->NotepadSetting->name]['created_user'] = CakeSession::read('Auth.User.id');
 				$notepadSetting = $this->NotepadSetting->save($notepadSetting);
 			}
 
 			//notepadsテーブル登録
 			$insertData = array();
-			$insertData[$this->name]['notepads_block_id'] = $blockId;
+			$insertData[$this->name]['notepad_block_id'] = $blockId;
 			$insertData[$this->name]['created_user'] = CakeSession::read('Auth.User.id');
 			$insertData[$this->name]['language_id'] = $data[$this->name]['language_id'];
 			$insertData[$this->name]['status'] = $this->getStatus($data[$this->name]['status']);
