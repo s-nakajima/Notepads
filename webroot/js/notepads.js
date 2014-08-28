@@ -103,7 +103,7 @@ NetCommonsApp.controller('Notepads',
        */
       $scope.Result = {
         'display': false,
-        'class': '',
+        'className': '',
         'message': ''
       };
 
@@ -232,7 +232,7 @@ NetCommonsApp.controller('Notepads',
        * @return {void}
        */
       $scope.post = function(postStatus) {
-        $scope.sendLock = true;
+        //$scope.sendLock = true;
 
         $http.get($scope.GET_FORM_URL +
                 $scope.frameId + '/' +
@@ -282,20 +282,22 @@ NetCommonsApp.controller('Notepads',
        * @return {void}
        */
       $scope.sendPost = function(postParams) {
-        $http.post(
-            $scope.POST_FORM_URL + $scope.frameId + '/' + Math.random(),
-            postParams)
-          .success(function(data, status, headers, config) {
-              $scope.notepad = data.notepad;
-              $scope.showResult('success', data.message);
-            })
-          .error(function(data, status, headers, config) {
-              if (! data.message) {
-                $scope.showResult('error', headers);
-              } else {
-                $scope.showResult('error', data.message);
-              }
-            });
+        $.ajax({
+          method: 'POST' ,
+          url: $scope.POST_FORM_URL + $scope.frameId + '/' + Math.random(),
+          data: postParams,
+          success: function(json, status, headers, config) {
+            $scope.notepad = json.data;
+            $scope.showResult('success', json.message);
+          },
+          error: function(json, status, headers, config) {
+            if (! json.message) {
+              $scope.showResult('error', headers);
+            } else {
+              $scope.showResult('error', json.message);
+            }
+          }
+        });
       };
 
       /**
@@ -307,13 +309,15 @@ NetCommonsApp.controller('Notepads',
        */
       $scope.showResult = function(type, message) {
         if (type == 'error') {
-          $scope.Result.class = 'alert-danger';
+          $scope.Result.className = 'alert-danger';
         }
         if (type == 'success') {
-          $scope.Result.class = 'alert-success';
+          $scope.Result.className = 'alert-success';
         }
 
+        $scope.Result.display = true;
         $scope.Result.message = message;
+
         $scope.sendLock = false;
       };
 

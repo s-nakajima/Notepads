@@ -37,7 +37,6 @@
 
 	//タイトル
 	echo $this->Form->input('Notepad.title', array(
-				'label' => false,
 				'type' => 'text',
 				'value' => '',
 			)
@@ -45,7 +44,6 @@
 
 	//内容
 	echo $this->Form->input('Notepad.content', array(
-				'label' => false,
 				'type' => 'textarea',
 				'value' => '',
 			)
@@ -53,7 +51,6 @@
 
 	//状態
 	echo $this->Form->input('Notepad.status', array(
-				'label' => false,
 				'type' => 'select',
 				'options' => Notepad::getStatus(),
 			)

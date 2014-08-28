@@ -157,7 +157,7 @@ class NotepadsController extends NotepadsAppController {
 		}
 
 		//保存
-		$rtn = $this->Notepads->saveContent(
+		$rtn = $this->Notepad->saveContent(
 			$this->data,
 			$frameId,
 			$this->viewVars['roomId']

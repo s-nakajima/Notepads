@@ -159,7 +159,7 @@ class Notepad extends NotepadsAppModel {
  */
 	public function getContent($blockId, $langId, $editable = 0) {
 		$conditions = array(
-			'block_id' => $blockId,
+			'notepads_block_id' => $blockId,
 			'language_id' => $langId,
 		);
 		if (! $editable) {
@@ -213,14 +213,13 @@ class Notepad extends NotepadsAppModel {
 		}
 
 		$frameId = (int)$frameId;
-		$userId = (int)$userId;
 		$roomId = (int)$roomId;
 		if (! $data || ! $frameId || ! $roomId) {
 			return null;
 		}
 		//frameID chaeck
-		if (! isset($data[$this->name]['frameId']) ||
-			$frameId !== (int)$data[$this->name]['frameId']) {
+		if (! isset($data[$this->Frame->name]['frame_id']) ||
+			$frameId !== (int)$data[$this->Frame->name]['frame_id']) {
 			return null;
 		}
 

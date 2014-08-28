@@ -21,10 +21,15 @@
 		echo $this->element('index/head_button');
 	?>
 
+	<?php
+		//結果メッセージの表示
+		echo $this->element('index/result_message');
+	?>
+
 	<div ng-hide="Form.display">
 		<?php
 			//本文の表示
-			echo $this->element('index/notepad');
+			echo $this->element('index/editable_notepad');
 		?>
 	</div>
 

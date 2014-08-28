@@ -11,9 +11,8 @@
  */
 ?>
 
-<div class="alert ng-hide" ng-class="Result.className" ng-show="Result.display">
-	<span class="pull-right" ng-click="Result.display=false">
-		<span class="glyphicon glyphicon-remove"> </span>
-	</span>
-	<span class='message'>{{Result.message}}</span>
-</div>
+<p>
+	<h3><?php echo h($notepad['Notepad']['title']); ?></h3>
+
+	<p><?php echo h($notepad['Notepad']['content']); ?></p>
+</p>
