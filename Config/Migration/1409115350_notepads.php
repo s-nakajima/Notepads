@@ -2,35 +2,35 @@
 /**
  * Migration file
  *
- * @author        Noriko Arai <arai@nii.ac.jp>
- * @author        Shohei Nakajima <nakajimashouhei@gmail.com>
- * @link          http://www.netcommons.org NetCommons Project
- * @license       http://www.netcommons.org/license.txt NetCommons License
- * @copyright     Copyright 2014, NetCommons Project
- * @package       app.Plugin.Notepads.Config.Migration
+ * @author Noriko Arai <arai@nii.ac.jp>
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @link http://www.netcommons.org NetCommons Project
+ * @license http://www.netcommons.org/license.txt NetCommons License
+ * @copyright Copyright 2014, NetCommons Project
+ * @package app.Plugin.Notepads.Config.Migration
  */
 
 /**
  * Notepads CakeMigration
  *
- * @author      Shohei Nakajima <nakajimashouhei@gmail.com>
- * @package     app.Plugin.Notepads.Config.Migration
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @package app.Plugin.Notepads.Config.Migration
  */
 class Notepads extends CakeMigration {
 
 /**
  * Migration description
  *
- * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
- * @var     string
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @var string
  */
 	public $description = '';
 
 /**
  * Actions to be performed
  *
- * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
- * @var     array $migration
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @var array $migration
  */
 	public $migration = array(
 		'up' => array(
@@ -40,7 +40,7 @@ class Notepads extends CakeMigration {
 					'notepad_block_id' => array('type' => 'integer', 'null' => false, 'default' => null),
 					'status' => array('type' => 'integer', 'null' => false, 'default' => '0', 'length' => 3),
 					'language_id' => array('type' => 'integer', 'null' => false, 'default' => '2'),
-					'is_auto_translation' => array('type' => 'boolean', 'null' => false, 'default' => 1, 'length' => 1),
+					'is_auto_translated' => array('type' => 'boolean', 'null' => false, 'default' => 0, 'length' => 1),
 					'translation_engine' => array('type' => 'string', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 					'title' => array('type' => 'string', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 					'content' => array('type' => 'text', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
@@ -109,8 +109,8 @@ class Notepads extends CakeMigration {
 /**
  * recodes
  *
- * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
- * @var     array $records
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @var array $records
  */
 	public $records = array();
 
@@ -129,7 +129,7 @@ class Notepads extends CakeMigration {
  * After migration callback
  *
  * @param string $direction up or down direction of migration process
- * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
  * @return boolean Should process continue
  */
 	public function after($direction) {
@@ -151,8 +151,8 @@ class Notepads extends CakeMigration {
  *
  * @param string $model model name to update
  * @param string $records records to be stored
- * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
- * @return  boolean Should process continue
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @return boolean Should process continue
  */
 	public function updateRecords($model, $records) {
 		$Model = $this->generateModel($model);

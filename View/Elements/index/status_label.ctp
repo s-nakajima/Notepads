@@ -13,32 +13,28 @@
 
 <div>
 	<span class="label label-info ng-hide"
-		  ng-init="Label.publish=<?php echo ($notepad['Notepad']['status'] === Notepad::STATUS_PUBLISH ? 'true' : 'false'); ?>"
-		  ng-class="{hidden: notepad.Notepad.status === <?php echo Notepad::STATUS_PUBLISH ?>}"
+		  ng-init="Label.publish=<?php echo ($notepad['Notepad']['status'] === Notepad::STATUS_PUBLISHED ? 'true' : 'false'); ?>"
 		  ng-show="Label.publish"
 	>
 		<?php echo __d('notepads', 'Publish'); ?>
 	</span>
 
 	<span class="label label-info ng-hide"
-		  ng-init="Label.approval=<?php echo ($notepad['Notepad']['status'] === Notepad::STATUS_APPROVAL ? 'true' : 'false'); ?>"
-		  ng-class="{hidden: notepad.Notepad.status === <?php echo Notepad::STATUS_APPROVAL ?>}"
+		  ng-init="Label.approval=<?php echo ($notepad['Notepad']['status'] === Notepad::STATUS_APPROVED ? 'true' : 'false'); ?>"
 		  ng-show="Label.approval"
 	>
 		<?php echo __d('notepads', 'Approval'); ?>
 	</span>
 
 	<span class="label label-info ng-hide"
-		  ng-init="Label.draft=<?php echo ($notepad['Notepad']['status'] === Notepad::STATUS_DRAFT ? 'true' : 'false'); ?>"
-		  ng-class="{hidden: notepad.Notepad.status === <?php echo Notepad::STATUS_DRAFT ?>}"
+		  ng-init="Label.draft=<?php echo ($notepad['Notepad']['status'] === Notepad::STATUS_DRAFTED ? 'true' : 'false'); ?>"
 		  ng-show="Label.draft"
 	>
 		<?php echo __d('notepads', 'Draft'); ?>
 	</span>
 
 	<span class="label label-info ng-hide"
-		  ng-init="Label.disapproval=<?php echo ($notepad['Notepad']['status'] === Notepad::STATUS_DISAPPROVAL ? 'true' : 'false'); ?>"
-		  ng-class="{hidden: notepad.Notepad.status === <?php echo Notepad::STATUS_DISAPPROVAL ?>}"
+		  ng-init="Label.disapproval=<?php echo ($notepad['Notepad']['status'] === Notepad::STATUS_DISAPPROVED ? 'true' : 'false'); ?>"
 		  ng-show="Label.disapproval"
 	>
 		<?php echo __d('notepads', 'Disapproval'); ?>

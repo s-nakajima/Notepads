@@ -12,10 +12,10 @@
 ?>
 
 <form method="post" accept-charset="utf-8" class="ng-hide"
-	  id="nc-notepads-input-form-<?php echo (int)$frameId; ?>"
-	  ng-show="Form.display" onsubmit="event.returnValue = false; return false;">
+		id="nc-notepads-input-form-<?php echo (int)$frameId; ?>"
+		ng-show="Form.display">
 
-	<div class='form-group'>
+	<div class="form-group">
 		<?php
 			//タイトル
 			echo $this->Form->label('Notepad.title', __d('notepads', 'Title'));
@@ -29,7 +29,7 @@
 				);
 		?>
 	</div>
-	<div class='form-group'>
+	<div class="form-group">
 		<?php
 			//内容
 			echo $this->Form->label('Notepad.content', __d('notepads', 'Content'));

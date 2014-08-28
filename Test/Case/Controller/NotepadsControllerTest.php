@@ -2,12 +2,12 @@
 /**
  * NotepadsController Test Case
  *
- * @author      Noriko Arai <arai@nii.ac.jp>
- * @author      Shohei Nakajima <nakajimashouhei@gmail.com>
- * @link        http://www.netcommons.org NetCommons Project
- * @license     http://www.netcommons.org/license.txt NetCommons License
- * @copyright   Copyright 2014, NetCommons Project
- * @package     app.Plugin.Notepads.Test.Controller.Case
+ * @author Noriko Arai <arai@nii.ac.jp>
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @link http://www.netcommons.org NetCommons Project
+ * @license http://www.netcommons.org/license.txt NetCommons License
+ * @copyright Copyright 2014, NetCommons Project
+ * @package app.Plugin.Notepads.Test.Controller.Case
  */
 
 App::uses('NotepadsController', 'Notepads.Controller');
@@ -15,16 +15,16 @@ App::uses('NotepadsController', 'Notepads.Controller');
 /**
  * NotepadsController Test Case
  *
- * @author      Shohei Nakajima <nakajimashouhei@gmail.com>
- * @package     app.Plugin.Notepads.Test.Controller.Case
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @package app.Plugin.Notepads.Test.Controller.Case
  */
 class NotepadsControllerTest extends ControllerTestCase {
 
 /**
  * Fixtures
  *
- * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
- * @var     array
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @var array
  */
 	public $fixtures = array(
 		'app.Session',
@@ -44,8 +44,8 @@ class NotepadsControllerTest extends ControllerTestCase {
 /**
  * setUp
  *
- * @author   Shohei Nakajima <nakajimashouhei@gmail.com>
- * @return   void
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @return void
  */
 	public function setUp() {
 		parent::setUp();
@@ -54,8 +54,8 @@ class NotepadsControllerTest extends ControllerTestCase {
 /**
  * tearDown method
  *
- * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
- * @return  void
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @return void
  */
 	public function tearDown() {
 		parent::tearDown();
@@ -64,8 +64,8 @@ class NotepadsControllerTest extends ControllerTestCase {
 /**
  * test index
  *
- * @author   Shohei Nakajima <nakajimashouhei@gmail.com>
- * @return   void
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @return void
  */
 	public function testIndex() {
 		$frameId = 1;
@@ -76,8 +76,8 @@ class NotepadsControllerTest extends ControllerTestCase {
 /**
  * test view
  *
- * @author   Shohei Nakajima <nakajimashouhei@gmail.com>
- * @return   void
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @return void
  */
 	public function testView() {
 		$frameId = 1;

@@ -246,11 +246,11 @@ msgstr "入力`show_digit_number`は10より大きく、1未満である必要�
 msgid "maxLength"
 msgstr "最大の長さ"
 
-#: Model/Notepad.php:validation for field notepads_block_id;validation
+#: Model/Notepad.php:validation for field notepad_block_id;validation
 #: status;validation language_id Model/NotepadPartSetting.php:validation
 #: part_id;validation readable_content;validation editable_content;validation
 #: creatable_content;validation publishable_content
-#: Model/NotepadSetting.php:validation notepads_block_id
+#: Model/NotepadSetting.php:validation notepad_block_id
 #: Model/NotepadsBlock.php:validation block_id
 msgid "Security Error! Unauthorized input."
 msgstr "セキュリティエラー！無許可入力"

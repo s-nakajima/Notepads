@@ -2,19 +2,19 @@
 /**
  * Schema file
  *
- * @author        Noriko Arai <arai@nii.ac.jp>
- * @author        Shohei Nakajima <nakajimashouhei@gmail.com>
- * @link          http://www.netcommons.org NetCommons Project
- * @license       http://www.netcommons.org/license.txt NetCommons License
- * @copyright    Copyright 2014, NetCommons Project
- * @package       app.Plugin.Notepads.Config.Schema
+ * @author Noriko Arai <arai@nii.ac.jp>
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @link http://www.netcommons.org NetCommons Project
+ * @license http://www.netcommons.org/license.txt NetCommons License
+ * @copyright Copyright 2014, NetCommons Project
+ * @package app.Plugin.Notepads.Config.Schema
  */
 
 /**
  * NotepadsSchema CakeSchema
  *
- * @author        Shohei Nakajima <nakajimashouhei@gmail.com>
- * @package       app.Plugin.Notepads.Config.Schema
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @package app.Plugin.Notepads.Config.Schema
  * @SuppressWarnings(PHPMD.LongVariable)
  */
 class NotepadsSchema extends CakeSchema {
@@ -22,8 +22,8 @@ class NotepadsSchema extends CakeSchema {
 /**
  * Database connection
  *
- * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
- * @var     string
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @var string
  */
 	public $connection = 'master';
 
@@ -31,8 +31,8 @@ class NotepadsSchema extends CakeSchema {
  * before
  *
  * @param array $event savent
- * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
- * @return  bool
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @return bool
  */
 	public function before($event = array()) {
 		return true;
@@ -42,8 +42,8 @@ class NotepadsSchema extends CakeSchema {
  * after
  *
  * @param array $event event
- * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
- * @return  void
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @return void
  */
 	public function after($event = array()) {
 	}
@@ -51,8 +51,8 @@ class NotepadsSchema extends CakeSchema {
 /**
  * notepads table
  *
- * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
- * @var     array
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @var array
  */
 	public $notepads = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
@@ -76,8 +76,8 @@ class NotepadsSchema extends CakeSchema {
 /**
  * notepads_blocks table
  *
- * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
- * @var     array
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @var array
  */
 	public $notepads_blocks = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
@@ -95,8 +95,8 @@ class NotepadsSchema extends CakeSchema {
 /**
  * notepad_settings table
  *
- * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
- * @var     array
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @var array
  */
 	public $notepad_settings = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
@@ -114,8 +114,8 @@ class NotepadsSchema extends CakeSchema {
 /**
  * notepad_part_settings table
  *
- * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
- * @var     array
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @var array
  */
 	public $notepad_part_settings = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),

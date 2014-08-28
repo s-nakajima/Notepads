@@ -2,27 +2,27 @@
 /**
  * RoomFixture
  *
- * @author      Noriko Arai <arai@nii.ac.jp>
- * @author      Shohei Nakajima <nakajimashouhei@gmail.com>
- * @link        http://www.netcommons.org NetCommons Project
- * @license     http://www.netcommons.org/license.txt NetCommons License
- * @copyright   Copyright 2014, NetCommons Project
- * @package     app.Plugin.PluginRoomManager.Test.Fixture
+ * @author Noriko Arai <arai@nii.ac.jp>
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @link http://www.netcommons.org NetCommons Project
+ * @license http://www.netcommons.org/license.txt NetCommons License
+ * @copyright Copyright 2014, NetCommons Project
+ * @package app.Plugin.PluginRoomManager.Test.Fixture
  */
 
 /**
  * RoomFixture
  *
- * @author      Shohei Nakajima <nakajimashouhei@gmail.com>
- * @package     app.Plugin.PluginRoomManager.Test.Case
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @package app.Plugin.PluginRoomManager.Test.Case
  */
 class RoomFixture extends CakeTestFixture {
 
 /**
  * Fields
  *
- * @author   Shohei Nakajima <nakajimashouhei@gmail.com>
- * @var      array
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @var array
  */
 	public $fields = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
@@ -43,8 +43,8 @@ class RoomFixture extends CakeTestFixture {
 /**
  * Records
  *
- * @author   Shohei Nakajima <nakajimashouhei@gmail.com>
- * @var      array
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @var array
  */
 	public $records = array(
 		array(

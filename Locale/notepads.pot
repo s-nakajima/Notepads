@@ -212,9 +212,9 @@ msgstr ""
 msgid "maxLength"
 msgstr ""
 
-#: Model/Notepad.php:validation for field notepads_block_id;validation for field status;validation for field language_id
-#: Model/NotepadPartSetting.php:validation for field notepads_block_id;validation for field part_id;validation for field readable_content;validation for field editable_content;validation for field creatable_content;validation for field publishable_content
-#: Model/NotepadSetting.php:validation for field notepads_block_id
+#: Model/Notepad.php:validation for field notepad_block_id;validation for field status;validation for field language_id
+#: Model/NotepadPartSetting.php:validation for field notepad_block_id;validation for field part_id;validation for field readable_content;validation for field editable_content;validation for field creatable_content;validation for field publishable_content
+#: Model/NotepadSetting.php:validation for field notepad_block_id
 #: Model/NotepadsBlock.php:validation for field block_id
 msgid "Security Error! Unauthorized input."
 msgstr ""

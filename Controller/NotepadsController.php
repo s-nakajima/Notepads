@@ -2,12 +2,12 @@
 /**
  * Notepads Controller
  *
- * @author      Noriko Arai <arai@nii.ac.jp>
- * @author      Shohei Nakajima <nakajimashouhei@gmail.com>
- * @link        http://www.netcommons.org NetCommons Project
- * @license     http://www.netcommons.org/license.txt NetCommons License
- * @copyright   Copyright 2014, NetCommons Project
- * @package     app.Plugin.Notepads.Controller
+ * @author Noriko Arai <arai@nii.ac.jp>
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @link http://www.netcommons.org NetCommons Project
+ * @license http://www.netcommons.org/license.txt NetCommons License
+ * @copyright Copyright 2014, NetCommons Project
+ * @package app.Plugin.Notepads.Controller
  */
 
 App::uses('NotepadsAppController', 'Notepads.Controller');
@@ -16,16 +16,16 @@ App::uses('Notepad', 'Notepads.Model');
 /**
  * Notepads Controller
  *
- * @author      Shohei Nakajima <nakajimashouhei@gmail.com>
- * @package     app.Plugin.Notepads.Controller
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @package app.Plugin.Notepads.Controller
  */
 class NotepadsController extends NotepadsAppController {
 
 /**
  * use model
  *
- * @author    Shohei Nakajima <nakajimashouhei@gmail.com>
- * @var       array
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @var array
  */
 	public $uses = array(
 		'Notepads.Notepad',
@@ -34,8 +34,8 @@ class NotepadsController extends NotepadsAppController {
 /**
  * beforeFilter
  *
- * @author   Shohei Nakajima <nakajimashouhei@gmail.com>
- * @return   void
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @return void
  */
 	public function beforeFilter() {
 		parent::beforeFilter();
@@ -47,19 +47,20 @@ class NotepadsController extends NotepadsAppController {
  *
  * @param int $frameId frames.id
  * @param string $lang language
- * @author   Shohei Nakajima <nakajimashouhei@gmail.com>
- * @return   CakeResponse
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @return CakeResponse
  */
 	public function index($frameId = 0, $lang = '') {
 		//フレーム初期化処理
 		if (! $this->_initializeFrame($frameId, $lang)) {
+			$this->response->statusCode(400);
 			return $this->render(false);
 		}
 
 		//コンテンツの取得
 		$notepad = $this->Notepad->getContent($this->viewVars['blockId'],
-											$this->viewVars['langId'],
-											$this->viewVars['contentEditable']);
+								$this->viewVars['languageId'],
+								$this->viewVars['contentEditable']);
 
 		//ログインしていない or 編集権限がない
 		if (! CakeSession::read('Auth.User') || ! $this->viewVars['contentEditable']) {
@@ -74,7 +75,7 @@ class NotepadsController extends NotepadsAppController {
 			$notepad = $this->Notepad->create();
 			$notepad[$this->Notepad->name]['title'] = '';
 			$notepad[$this->Notepad->name]['content'] = '';
-			$notepad[$this->Notepad->name]['language_id'] = $this->viewVars['langId'];
+			$notepad[$this->Notepad->name]['language_id'] = $this->viewVars['languageId'];
 		}
 		$this->set('notepad', $notepad);
 
@@ -92,8 +93,8 @@ class NotepadsController extends NotepadsAppController {
  *
  * @param int $frameId frames.id
  * @param string $lang language
- * @author   Shohei Nakajima <nakajimashouhei@gmail.com>
- * @return   CakeResponse
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @return CakeResponse
  */
 	public function view($frameId = 0, $lang = '') {
 		return $this->render('Notepads/view');
@@ -103,16 +104,17 @@ class NotepadsController extends NotepadsAppController {
  * get edit form
  *
  * @param int $frameId frames.id
- * @param int $langId languages.id
- * @author   Shohei Nakajima <nakajimashouhei@gmail.com>
- * @return   CakeResponse
+ * @param int $languageId languages.id
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @return CakeResponse
  */
-	public function form($frameId = 0, $langId = 0) {
+	public function form($frameId = 0, $languageId = 0) {
 		$this->layout = false;
 		$this->isSetting = true;
 
 		//フレーム初期化処理
 		if (! $this->_initializeFrame($frameId)) {
+			$this->response->statusCode(400);
 			return $this->render(false);
 		}
 
@@ -122,15 +124,15 @@ class NotepadsController extends NotepadsAppController {
 		}
 
 		//引数の言語ID
-		$langId = (int)$langId;
+		$languageId = (int)$languageId;
 
 		//コンテンツの取得
 		$notepad = $this->Notepad->getContent($this->viewVars['blockId'],
-											$langId,
+											$languageId,
 											$this->viewVars['contentEditable']);
 		if (! $notepad) {
 			$notepad = $this->Notepad->create();
-			$notepad[$this->Notepad->name]['language_id'] = $langId;
+			$notepad[$this->Notepad->name]['language_id'] = $languageId;
 			$notepad[$this->Notepad->name]['notepad_block_id'] = $this->viewVars['blockId'];
 		}
 		$this->set('notepad', $notepad);

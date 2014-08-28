@@ -14,7 +14,7 @@ NetCommonsApp.controller('Notepads',
                          function($scope , $http, $sce, $timeout) {
 
       /**
-       * プラグインURL
+       * Notepad plugin URL
        *
        * @const
        */
@@ -49,14 +49,14 @@ NetCommonsApp.controller('Notepads',
       $scope.frameId = 0;
 
       /**
-       * ヘッダーボタン
+       * display header button
        *
        * @type {boolean}
        */
       $scope.dipslayHeaderBtn = true;
 
       /**
-       * フォームの設定
+       * input form object
        *
        * @type {{display: boolean,
        *         title: string,
@@ -71,7 +71,7 @@ NetCommonsApp.controller('Notepads',
       };
 
       /**
-       * プレビューの設定
+       * preview object
        *
        * @type {{display: boolean, title: string, content: content}}
        */
@@ -84,8 +84,7 @@ NetCommonsApp.controller('Notepads',
       };
 
       /**
-       * コンテンツの状態設定
-       * ラベルとボタンの表示制御 : お知らせの状態の格納
+       * status label object
        *
        * @type {{publish: boolean, approval: boolean, draft: boolean, disapproval: boolean}}
        */
@@ -97,7 +96,7 @@ NetCommonsApp.controller('Notepads',
       };
 
       /**
-       * 実行結果の設定
+       * post result error
        *
        * @type {{display: boolean, title: string, content: string}}
        */
@@ -165,7 +164,7 @@ NetCommonsApp.controller('Notepads',
       };
 
       /**
-       * 設定フォームを表示する。
+       * show setting form
        *
        * @return {void}
        */
@@ -184,7 +183,7 @@ NetCommonsApp.controller('Notepads',
       };
 
       /**
-       * プレビューを表示する。
+       * show preview
        *
        * @return {void}
        */
@@ -198,7 +197,7 @@ NetCommonsApp.controller('Notepads',
       };
 
       /**
-       * 設定フォームを終了する。
+       * hide setting form
        *
        * @return {void}
        */
@@ -211,7 +210,7 @@ NetCommonsApp.controller('Notepads',
       };
 
       /**
-       * プレビューを終了する。
+       * hide preview
        *
        * @return {void}
        */
@@ -222,13 +221,13 @@ NetCommonsApp.controller('Notepads',
       };
 
       /**
-       * 各ボタン処理
-       *     Draft: 下書き
-       *     Disapproval: 差し戻し
-       *     Approval: 公開申請
-       *     Publish: 公開
+       * post 
+       *     1: Publish
+       *     2: Approve
+       *     3: Draft
+       *     4: Disapprove
        *
-       * @param {stirng} status
+       * @param {string} status
        * @return {void}
        */
       $scope.post = function(postStatus) {
@@ -276,35 +275,34 @@ NetCommonsApp.controller('Notepads',
       };
 
       /**
-       * 登録処理
+       * save
        *
        * @param {Object.<string>} postParams
        * @return {void}
        */
       $scope.sendPost = function(postParams) {
-        $.ajax({
-          method: 'POST' ,
-          url: $scope.POST_FORM_URL + $scope.frameId + '/' + Math.random(),
-          data: postParams,
-          success: function(json, status, headers, config) {
-            $scope.notepad = json.data;
-            $scope.showResult('success', json.message);
-          },
-          error: function(json, status, headers, config) {
-            if (! json.message) {
-              $scope.showResult('error', headers);
-            } else {
-              $scope.showResult('error', json.message);
-            }
-          }
-        });
+        $http.post(
+            $scope.POST_FORM_URL + $scope.frameId + '/' + Math.random(),
+            $.param(postParams),
+            {header: {'Content-Type': 'application/x-www-form-urlencoded'}})
+          .success(function(json, status, headers, config) {
+              $scope.notepad = json.data;
+              $scope.showResult('success', json.message);
+            })
+          .error(function(json, status, headers, config) {
+              if (! json.message) {
+                $scope.showResult('error', headers);
+              } else {
+                $scope.showResult('error', json.message);
+              }
+            });
       };
 
       /**
-       * メッセージ（実行結果）を表示
+       * show result
        *
-       * @param {stirng} type
-       * @param {stirng} text
+       * @param {string} type
+       * @param {string} message
        * @return {void}
        */
       $scope.showResult = function(type, message) {
@@ -322,7 +320,7 @@ NetCommonsApp.controller('Notepads',
       };
 
       /**
-       * ブロック設定のモーダルを表示させる。
+       * show block setting
        *
        * @return {void}
        */

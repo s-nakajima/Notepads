@@ -52,7 +52,12 @@
 	//状態
 	echo $this->Form->input('Notepad.status', array(
 				'type' => 'select',
-				'options' => Notepad::getStatus(),
+				'options' => array(
+					Notepad::STATUS_PUBLISHED,
+					Notepad::STATUS_APPROVED,
+					Notepad::STATUS_DRAFTED,
+					Notepad::STATUS_DISAPPROVED
+				),
 			)
 		);
 

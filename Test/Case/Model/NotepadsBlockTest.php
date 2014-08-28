@@ -2,12 +2,12 @@
 /**
  * NotepadsBlock Test Case
  *
- * @author      Noriko Arai <arai@nii.ac.jp>
- * @author      Shohei Nakajima <nakajimashouhei@gmail.com>
- * @link        http://www.netcommons.org NetCommons Project
- * @license     http://www.netcommons.org/license.txt NetCommons License
- * @copyright   Copyright 2014, NetCommons Project
- * @package     app.Plugin.Notepads.Test.Model.Case
+ * @author Noriko Arai <arai@nii.ac.jp>
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @link http://www.netcommons.org NetCommons Project
+ * @license http://www.netcommons.org/license.txt NetCommons License
+ * @copyright Copyright 2014, NetCommons Project
+ * @package app.Plugin.Notepads.Test.Model.Case
  */
 
 App::uses('NotepadsBlock', 'Notepads.Model');
@@ -15,16 +15,16 @@ App::uses('NotepadsBlock', 'Notepads.Model');
 /**
  * NotepadsBlock Test Case
  *
- * @author      Shohei Nakajima <nakajimashouhei@gmail.com>
- * @package     app.Plugin.Notepads.Model
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @package app.Plugin.Notepads.Model
  */
 class NotepadsBlockTest extends CakeTestCase {
 
 /**
  * Fixtures
  *
- * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
- * @var     array
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @var array
  */
 	public $fixtures = array(
 		'plugin.notepads.notepad',

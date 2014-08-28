@@ -4,12 +4,12 @@
  *
  * @property Block $Block
  *
- * @author      Noriko Arai <arai@nii.ac.jp>
- * @author      Shohei Nakajima <nakajimashouhei@gmail.com>
- * @link        http://www.netcommons.org NetCommons Project
- * @license     http://www.netcommons.org/license.txt NetCommons License
- * @copyright   Copyright 2014, NetCommons Project
- * @package     app.Plugin.Notepads.Model
+ * @author Noriko Arai <arai@nii.ac.jp>
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @link http://www.netcommons.org NetCommons Project
+ * @license http://www.netcommons.org/license.txt NetCommons License
+ * @copyright Copyright 2014, NetCommons Project
+ * @package app.Plugin.Notepads.Model
  */
 
 App::uses('NotepadsAppModel', 'Notepads.Model');
@@ -19,24 +19,24 @@ App::uses('NotepadsAppModel', 'Notepads.Model');
  *
  * @property Block $Block
  *
- * @author      Shohei Nakajima <nakajimashouhei@gmail.com>
- * @package     app.Plugin.Notepads.Model
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @package app.Plugin.Notepads.Model
  */
 class NotepadsBlock extends NotepadsAppModel {
 
 /**
  * Use database config
  *
- * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
- * @var     string
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @var string
  */
 	public $useDbConfig = 'master';
 
 /**
  * Validation rules
  *
- * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
- * @var     array
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @var array
  */
 	public $validate = array(
 		'block_id' => array(
@@ -50,8 +50,8 @@ class NotepadsBlock extends NotepadsAppModel {
 /**
  * belongsTo associations
  *
- * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
- * @var     array
+ * @author Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @var array
  */
 	public $belongsTo = array(
 		'Block' => array(
