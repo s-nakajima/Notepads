@@ -189,7 +189,7 @@ NetCommonsApp.controller('Notepads',
                 'area-' + $scope.frameId;
 
         $scope.resultMessageAttrId =
-                $scope.RESULT_MESSAGE_ATTR_ID + $scope.frameId;
+            $scope.RESULT_MESSAGE_ATTR_ID + $scope.frameId;
 
         $scope.ContentAttrId = $scope.CONTENT_ATTR_ID + $scope.frameId;
 
@@ -323,25 +323,25 @@ NetCommonsApp.controller('Notepads',
        */
       $scope.sendPost = function(postParams) {
         $.ajax({
-            method: 'POST' ,
-            url: $scope.POST_FORM_URL + $scope.frameId + '/' + Math.random(),
-            data: postParams,
-            success: function(json, status, headers, config) {
-              $scope.notepad = json.data;
-              $($scope.contentAttrId + ' .nc-notepads-title')
-                      .html(json.data.Notepad.title);
-              $($scope.contentAttrId + ' .nc-notepads-content')
-                      .html(json.data.Notepad.content);
-              $scope.showResult('success', json.message);
-            },
-            error: function(json, status, headers, config) {
-              if (! json.message) {
-                $scope.showResult('error', headers);
-              } else {
-                $scope.showResult('error', json.message);
-              }
+          method: 'POST' ,
+          url: $scope.POST_FORM_URL + $scope.frameId + '/' + Math.random(),
+          data: postParams,
+          success: function(json, status, headers, config) {
+            $scope.notepad = json.data;
+            $($scope.contentAttrId + ' .nc-notepads-title')
+                    .html(json.data.Notepad.title);
+            $($scope.contentAttrId + ' .nc-notepads-content')
+                    .html(json.data.Notepad.content);
+            $scope.showResult('success', json.message);
+          },
+          error: function(json, status, headers, config) {
+            if (! json.message) {
+              $scope.showResult('error', headers);
+            } else {
+              $scope.showResult('error', json.message);
             }
-          });
+          }
+        });
       };
 
       /**
