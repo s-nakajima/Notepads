@@ -39,6 +39,7 @@ class NotepadsControllerTest extends ControllerTestCase {
 		'plugin.notepads.room',
 		'plugin.notepads.user',
 		'plugin.notepads.room_part',
+		'plugin.notepads.language',
 	);
 
 /**

@@ -32,7 +32,8 @@ class NotepadPartSettingTest extends CakeTestCase {
 		'plugin.notepads.language',
 		'plugin.notepads.blocks_language',
 		'plugin.notepads.part',
-		'plugin.notepads.languages_part'
+		'plugin.notepads.languages_part',
+		'plugin.notepads.notepads_block',
 	);
 
 /**
