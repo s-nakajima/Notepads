@@ -25,14 +25,6 @@ App::uses('NotepadsAppModel', 'Notepads.Model');
 class NotepadSetting extends NotepadsAppModel {
 
 /**
- * Use database config
- *
- * @author Shohei Nakajima <nakajimashouhei@gmail.com>
- * @var string
- */
-	public $useDbConfig = 'master';
-
-/**
  * Validation rules
  *
  * @author Shohei Nakajima <nakajimashouhei@gmail.com>

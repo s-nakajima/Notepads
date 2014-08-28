@@ -56,6 +56,15 @@ NetCommonsApp.controller('Notepads',
       $scope.dipslayHeaderBtn = true;
 
       /**
+       * content object
+       *
+       * @type {{display: boolean}}
+       */
+      $scope.Content = {
+        'display': true
+      };
+
+      /**
        * input form object
        *
        * @type {{display: boolean,
@@ -89,21 +98,10 @@ NetCommonsApp.controller('Notepads',
        * @type {{publish: boolean, approval: boolean, draft: boolean, disapproval: boolean}}
        */
       $scope.Label = {
-        'publish' : false,
-        'approval' : false,
-        'draft' : false,
-        'disapproval' : false
-      };
-
-      /**
-       * post result error
-       *
-       * @type {{display: boolean, title: string, content: string}}
-       */
-      $scope.Result = {
-        'display': false,
-        'className': '',
-        'message': ''
+        'publish': false,
+        'approval': false,
+        'draft': false,
+        'disapproval': false
       };
 
       /**
@@ -149,6 +147,34 @@ NetCommonsApp.controller('Notepads',
       $scope.postFormAreaAttrId = '';
 
       /**
+       * result message id attribute
+       *
+       * @const
+       */
+      $scope.RESULT_MESSAGE_ATTR_ID = '#nc-notepads-result-';
+
+      /**
+       * result message id attribute
+       *
+       * @type {sring}
+       */
+      $scope.resultMessageAttrId = '';
+
+      /**
+       * result message id attribute
+       *
+       * @const
+       */
+      $scope.CONTENT_ATTR_ID = '#nc-notepads-content-';
+
+      /**
+       * result message id attribute
+       *
+       * @type {sring}
+       */
+      $scope.contentAttrId = '';
+
+      /**
        * Initialize
        *
        * @return {void}
@@ -161,6 +187,14 @@ NetCommonsApp.controller('Notepads',
         $scope.postFormAttrId = $scope.POST_FORM_ATTR_ID + $scope.frameId;
         $scope.postFormAreaAttrId = $scope.POST_FORM_ATTR_ID +
                 'area-' + $scope.frameId;
+
+        $scope.resultMessageAttrId =
+                $scope.RESULT_MESSAGE_ATTR_ID + $scope.frameId;
+
+        $scope.ContentAttrId = $scope.CONTENT_ATTR_ID + $scope.frameId;
+
+        $scope.Content.display = true;
+
       };
 
       /**
@@ -178,6 +212,12 @@ NetCommonsApp.controller('Notepads',
         $scope.Preview.label = false;
 
         $scope.dipslayHeaderBtn = false;
+        $scope.Content.display = false;
+
+        $($scope.resultMessageAttrId)
+            .removeClass('alert-danger')
+            .removeClass('alert-success');
+        $($scope.resultMessageAttrId + ' .message').html(' ');
 
         $($scope.postFormAreaAttrId).html(' ');
       };
@@ -188,12 +228,12 @@ NetCommonsApp.controller('Notepads',
        * @return {void}
        */
       $scope.showPreview = function() {
-        $scope.Form.display = false;
         $scope.Preview.display = true;
         $scope.Preview.label = true;
 
         $scope.Preview.title = $scope.Form.title;
         $scope.Preview.content = $scope.Form.content;
+        $scope.Form.display = false;
       };
 
       /**
@@ -207,6 +247,7 @@ NetCommonsApp.controller('Notepads',
         $scope.Preview.display = false;
         $scope.Preview.label = false;
         $scope.dipslayHeaderBtn = true;
+        $scope.Content.display = true;
       };
 
       /**
@@ -281,21 +322,26 @@ NetCommonsApp.controller('Notepads',
        * @return {void}
        */
       $scope.sendPost = function(postParams) {
-        $http.post(
-            $scope.POST_FORM_URL + $scope.frameId + '/' + Math.random(),
-            $.param(postParams),
-            {header: {'Content-Type': 'application/x-www-form-urlencoded'}})
-          .success(function(json, status, headers, config) {
+        $.ajax({
+            method: 'POST' ,
+            url: $scope.POST_FORM_URL + $scope.frameId + '/' + Math.random(),
+            data: postParams,
+            success: function(json, status, headers, config) {
               $scope.notepad = json.data;
+              $($scope.contentAttrId + ' .nc-notepads-title')
+                      .html(json.data.Notepad.title);
+              $($scope.contentAttrId + ' .nc-notepads-content')
+                      .html(json.data.Notepad.content);
               $scope.showResult('success', json.message);
-            })
-          .error(function(json, status, headers, config) {
+            },
+            error: function(json, status, headers, config) {
               if (! json.message) {
                 $scope.showResult('error', headers);
               } else {
                 $scope.showResult('error', json.message);
               }
-            });
+            }
+          });
       };
 
       /**
@@ -307,16 +353,17 @@ NetCommonsApp.controller('Notepads',
        */
       $scope.showResult = function(type, message) {
         if (type == 'error') {
-          $scope.Result.className = 'alert-danger';
+          $($scope.resultMessageAttrId)
+            .addClass('alert-danger')
+            .removeClass('alert-success');
         }
         if (type == 'success') {
-          $scope.Result.className = 'alert-success';
+          $($scope.resultMessageAttrId)
+            .removeClass('alert-danger')
+            .addClass('alert-success');
         }
 
-        $scope.Result.display = true;
-        $scope.Result.message = message;
-
-        $scope.sendLock = false;
+        $($scope.resultMessageAttrId + ' .message').html(message);
       };
 
       /**
