@@ -122,17 +122,9 @@ class Notepad extends NotepadsAppModel {
  * @return array Notepad
  */
 	public function getContent($blockId, $languageId, $editable = 0) {
-		$conditions = array(
-			'notepad_block_id' => $blockId,
-			'language_id' => $languageId,
-		);
-		if (! $editable) {
-			$conditions['status'] = self::STATUS_PUBLISHED;
-		}
-		return $this->find('first', array(
-			'conditions' => $conditions,
-			'order' => $this->name . '.id DESC',
-		));
+		// TODO: Notepad 課題 1
+		//		$editable = 0 の場合、公開情報を取得し、それ以外はidが最新のデータを取得する
+		//		条件は、blockId、languageId毎に取得する
 	}
 
 /**
@@ -166,49 +158,33 @@ class Notepad extends NotepadsAppModel {
 		$dataSource = $this->getDataSource();
 		$dataSource->begin();
 		try {
+			// TODO: Notepad 課題 2
+			//		各テーブルへの登録処理を書く
+
 			if (! $blockId) {
 				//blocksテーブル登録
-				$block = array();
-				$block[$this->Block->name]['room_id'] = (int)$roomId;
-				$block[$this->Block->name]['created_user'] = CakeSession::read('Auth.User.id');
-				$block = $this->Block->save($block);
 
-				//framesテーブル更新
-				$frame[$this->Frame->name]['block_id'] = $block[$this->Block->name]['id'];
-				$this->Frame->save($frame);
+				//framesテーブルのblock_idを更新
 
 				//notepads_blocksテーブル登録
-				$notepadsBlock = array();
-				$notepadsBlock[$this->NotepadsBlock->name]['block_id'] = $block[$this->Block->name]['id'];
-				$notepadsBlock[$this->NotepadsBlock->name]['created_user'] = CakeSession::read('Auth.User.id');
-				$this->NotepadsBlock->save($notepadsBlock);
 
 				//notepad_settingsテーブル登録
-				$notepadSetting = array();
-				$notepadSetting[$this->NotepadSetting->name]['notepad_block_id'] = $block[$this->Block->name]['id'];
-				$notepadSetting[$this->NotepadSetting->name]['created_user'] = CakeSession::read('Auth.User.id');
-				$this->NotepadSetting->save($notepadSetting);
 			}
 
 			//notepadsテーブル登録
 			$insertData = array();
-			$insertData[$this->name]['notepad_block_id'] = $blockId;
-			$insertData[$this->name]['created_user'] = CakeSession::read('Auth.User.id');
-			$insertData[$this->name]['language_id'] = $data[$this->name]['language_id'];
-			$insertData[$this->name]['status'] = (int)$data[$this->name]['status'];
-			$insertData[$this->name]['title'] = $data[$this->name]['title'];
-			$insertData[$this->name]['content'] = $data[$this->name]['content'];
+
+			//コミット
+			$dataSource->commit();
 
 			//保存結果を返す
-			$insertData = $this->save($insertData);
-
-			$dataSource->commit();
+			return $insertData;
 		} catch (Exception $ex) {
 			CakeLog::error($ex->getTraceAsString());
+			//ロールバック
 			$dataSource->rollback();
 			return false;
 		}
-		return $insertData;
 	}
 
 /**
@@ -233,5 +209,4 @@ class Notepad extends NotepadsAppModel {
 		//フレーム取得
 		return $this->Frame->findById($frameId);
 	}
-
 }

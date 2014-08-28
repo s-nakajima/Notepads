@@ -58,34 +58,30 @@ class NotepadsController extends NotepadsAppController {
 		}
 
 		//コンテンツの取得
-		$notepad = $this->Notepad->getContent($this->viewVars['blockId'],
-								$this->viewVars['languageId'],
-								$this->viewVars['contentEditable']);
+		// TODO: NotepadsController 課題 1
+		//		NotepadモデルのgetContentからデータを取得する
+		//			引数1: $this->viewVars['blockId']
+		//			引数2: $this->viewVars['languageId']
+		//			引数3: $this->viewVars['contentEditable']
 
 		//ログインしていない or 編集権限がない
-		if (! CakeSession::read('Auth.User') || ! $this->viewVars['contentEditable']) {
-			if (! $notepad) {
-				return $this->render(false);
-			}
-			$this->set('notepad', $notepad);
-			return $this->render('Notepads/index/publish');
-		}
+		// TODO: NotepadsController 課題 2
+		//		(前提)
+		//			ログインしている場合⇒CakeSession::read('Auth.User')の値あり
+		//			編集権限がない場合⇒$this->viewVars['contentEditable']=false
+		//		(課題)
+		//			データがない場合⇒空データでrenderする
+		//			データがある場合⇒取得したNotepadデータをViewにセットし、index/publish.ctpでrenderする。
 
-		if (! $notepad) {
-			$notepad = $this->Notepad->create();
-			$notepad[$this->Notepad->name]['title'] = '';
-			$notepad[$this->Notepad->name]['content'] = '';
-			$notepad[$this->Notepad->name]['language_id'] = $this->viewVars['languageId'];
-		}
-		$this->set('notepad', $notepad);
-
-		//編集権限があり、セッティングモードOFF
-		if (! Configure::read('Pages.isSetting')) {
-			return $this->render('Notepads/index/latest');
-		}
-
-		//編集権限があり、セッティングモードON
-		return $this->render('Notepads/index/edit');
+		//編集権限がある
+		// TODO: NotepadsController 課題 3
+		//		データがない場合、デフォルト値をViewにセットする。
+		//			title=''
+		//			content=''
+		//			language_id=$this->viewVars['languageId']
+		//		データがある場合、「NotepadsController 課題 1」をViewにセットする
+		//		編集権限があり、セッティングモードOFF⇒index/latest.ctpでrenderする
+		//		編集権限があり、セッティングモードON⇒index/edit.ctpでrenderする
 	}
 
 /**
@@ -120,7 +116,8 @@ class NotepadsController extends NotepadsAppController {
 
 		//権限がない場合
 		if (! $this->viewVars['contentEditable']) {
-			return $this->render(false);
+			//TODO: NotepadsController 課題 4
+			//		エラーで処理を抜ける
 		}
 
 		//引数の言語ID
@@ -155,7 +152,7 @@ class NotepadsController extends NotepadsAppController {
 		$this->_initializeFrame($frameId);
 		if (! $this->viewVars['contentEditable']) {
 			//権限エラー
-			return $this->_renderJson(403, __d('notepads', 'I failed to save'));
+			return $this->_renderJson(401, __d('notepads', 'I failed to save'));
 		}
 
 		//保存

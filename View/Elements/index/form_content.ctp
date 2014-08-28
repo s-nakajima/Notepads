@@ -15,32 +15,10 @@
 		id="nc-notepads-input-form-<?php echo (int)$frameId; ?>"
 		ng-show="Form.display">
 
-	<div class="form-group">
-		<?php
-			//タイトル
-			echo $this->Form->label('Notepad.title', __d('notepads', 'Title'));
+<?php
+//TODO: Elements/index/form_content.ctp 課題
+//		タイトル(text ng-model=Form.title)、
+//		コンテンツ(textarea ng-model=Form.content)を記述
+?>
 
-			echo $this->Form->input('Notepad.title', array(
-						'label' => false,
-						'type' => 'text',
-						'class' => 'form-control',
-						'ng-model' => 'Form.title'
-					)
-				);
-		?>
-	</div>
-	<div class="form-group">
-		<?php
-			//内容
-			echo $this->Form->label('Notepad.content', __d('notepads', 'Content'));
-
-			echo $this->Form->input('Notepad.content', array(
-						'label' => false,
-						'type' => 'textarea',
-						'class' => 'form-control',
-						'ng-model' => 'Form.content'
-					)
-				);
-		?>
-	</div>
 </form>

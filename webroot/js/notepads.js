@@ -183,14 +183,19 @@ NetCommonsApp.controller('Notepads',
         $scope.notepad = notepad;
         $scope.frameId = frameId;
 
+        //入力フォームid属性のセット
         $scope.inputFormAttrId = $scope.INPUT_FORM_ATTR_ID + $scope.frameId;
+        //POSTフォームid属性のセット
         $scope.postFormAttrId = $scope.POST_FORM_ATTR_ID + $scope.frameId;
+        //POSTフォームエリアid属性のセット
         $scope.postFormAreaAttrId = $scope.POST_FORM_ATTR_ID +
                 'area-' + $scope.frameId;
 
+        //登録処理結果メッセージのid属性のセット
         $scope.resultMessageAttrId =
             $scope.RESULT_MESSAGE_ATTR_ID + $scope.frameId;
 
+        //コンテンツのid属性のセット
         $scope.ContentAttrId = $scope.CONTENT_ATTR_ID + $scope.frameId;
 
         $scope.Content.display = true;
@@ -203,22 +208,20 @@ NetCommonsApp.controller('Notepads',
        * @return {void}
        */
       $scope.showSetting = function() {
-        $scope.Form.display = true;
-        $scope.Form.button = true;
-        $scope.Form.title = $scope.notepad.Notepad.title;
-        $scope.Form.content = $scope.notepad.Notepad.content;
+        /**
+         * @todo: Javascript 課題1
+         *    1．フォームを表示する
+         *    2．編集・ブロックセッティングのボタンを隠す
+         *    3．コンテンツを隠す
+         */
 
-        $scope.Preview.display = false;
-        $scope.Preview.label = false;
-
-        $scope.dipslayHeaderBtn = false;
-        $scope.Content.display = false;
-
+        //メッセージの初期化
         $($scope.resultMessageAttrId)
             .removeClass('alert-danger')
             .removeClass('alert-success');
         $($scope.resultMessageAttrId + ' .message').html(' ');
 
+        //POSTフォームエリアの内容をクリア
         $($scope.postFormAreaAttrId).html(' ');
       };
 
@@ -228,12 +231,11 @@ NetCommonsApp.controller('Notepads',
        * @return {void}
        */
       $scope.showPreview = function() {
-        $scope.Preview.display = true;
-        $scope.Preview.label = true;
-
-        $scope.Preview.title = $scope.Form.title;
-        $scope.Preview.content = $scope.Form.content;
-        $scope.Form.display = false;
+        /**
+         * @todo: Javascript 課題2
+         *    1．プレビューを表示する
+         *    2．入力フォーム
+         */
       };
 
       /**
@@ -242,12 +244,14 @@ NetCommonsApp.controller('Notepads',
        * @return {void}
        */
       $scope.hideSetting = function() {
-        $scope.Form.display = false;
-        $scope.Form.button = false;
-        $scope.Preview.display = false;
-        $scope.Preview.label = false;
-        $scope.dipslayHeaderBtn = true;
-        $scope.Content.display = true;
+        /**
+         * @todo: Javascript 課題3
+         *    1．フォームを隠す
+         *    2．フォームボタンを隠す
+         *    3．プレビューを隠す
+         *    4．編集・ブロックセッティングのボタンを表示する(dipslayHeaderBtn)
+         *    5．コンテンツを表示する
+         */
       };
 
       /**
@@ -256,9 +260,14 @@ NetCommonsApp.controller('Notepads',
        * @return {void}
        */
       $scope.hidePreview = function() {
-        $scope.Form.display = true;
-        $scope.Preview.display = false;
-        $scope.Preview.label = false;
+        /**
+         * @todo: Javascript 課題4
+         *    1．プレビューを表示する
+         *    2．プレビュー中ラベルを表示する
+         *    3．プレビューを終了するボタンを表示する
+         *    4．プレビューボタンを隠す
+         *    5．入力フォーム
+         */
       };
 
       /**
@@ -286,7 +295,6 @@ NetCommonsApp.controller('Notepads',
 
               var postParams = {};
               //POSTフォームのシリアライズ
-              var i = 0;
               var postSerialize =
                         $($scope.postFormAttrId).serializeArray();
               var length = postSerialize.length;
@@ -296,7 +304,6 @@ NetCommonsApp.controller('Notepads',
               }
 
               //入力フォームのシリアライズ
-              var i = 0;
               var inputSerialize =
                         $($scope.inputFormAttrId).serializeArray();
               var length = inputSerialize.length;
