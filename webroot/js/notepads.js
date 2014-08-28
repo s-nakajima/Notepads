@@ -221,7 +221,7 @@ NetCommonsApp.controller('Notepads',
       };
 
       /**
-       * post 
+       * post
        *     1: Publish
        *     2: Approve
        *     3: Draft
