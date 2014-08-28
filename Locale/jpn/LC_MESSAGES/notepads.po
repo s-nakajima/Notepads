@@ -1,0 +1,278 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2014-08-28 02:49+0000\n"
+"PO-Revision-Date: 2014-08-28 13:33+0900\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ja\n"
+"X-Generator: Poedit 1.6.8\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: Controller/NotepadsController.php:149;156;168
+msgid "I failed to save"
+msgstr "保存に失敗しました"
+
+#: Controller/NotepadsController.php:170
+msgid "Saved"
+msgstr "保存った！"
+
+#: View/Elements/index/form_button.ctp:17
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: View/Elements/index/form_button.ctp:24
+msgid "Preview"
+msgstr "プレビュー"
+
+#: View/Elements/index/form_button.ctp:31
+msgid "Close Preview"
+msgstr "プレビューを閉じる"
+
+#: View/Elements/index/form_button.ctp:38
+#: View/Elements/index/status_label.ctp:36
+msgid "Draft"
+msgstr "下書き"
+
+#: View/Elements/index/form_button.ctp:45
+#: View/Elements/index/status_label.ctp:44
+msgid "Disapproval"
+msgstr "未認証"
+
+#: View/Elements/index/form_button.ctp:52
+#: View/Elements/index/status_label.ctp:28
+msgid "Approval"
+msgstr "認証"
+
+#: View/Elements/index/form_button.ctp:59
+#: View/Elements/index/head_button.ctp:37
+#: View/Elements/index/status_label.ctp:20
+msgid "Publish"
+msgstr "公開"
+
+#: View/Elements/index/form_content.ctp:21
+msgid "Title"
+msgstr "タイトル"
+
+#: View/Elements/index/form_content.ctp:35
+msgid "Content"
+msgstr "コンテンツ"
+
+#: View/Elements/index/head_button.ctp:19
+msgid "Block setting"
+msgstr "ブロック設定"
+
+#: View/Elements/index/head_button.ctp:28
+msgid "Edit"
+msgstr "修正"
+
+#: Model/Archive.php:validation for field parent_model_name;validation
+#: model_name;validation title;validation content;validation
+#: search_content;validation url;validation created_user_name;validation
+#: modified_user_name Model/Authority.php:validation default_name;validation
+#: Model/AuthorityLang.php:validation lang;validation name;validation
+#: Model/Background.php:validation type;validation category;validation
+#: color;validation file_path Model/Config.php:validation value;validation
+#: description;validation options;validation domain;validation
+#: attribute;validation regexp;validation Model/ConfigLang.php:validation
+#: config_name;validation Model/Content.php:validation
+#: Model/Language.php:validation display_name Model/PageColumn.php:validation
+#: Model/PageLayout.php:validation Model/PageMeta.php:validation
+#: Model/PageStyle.php:validation align;validation width;validation
+#: height;validation original_background_image;validation
+#: original_background_repeat;validation
+#: original_background_position;validation
+#: original_background_attachment;validation file;validation
+#: Model/PageSumView.php:validation Model/PageTheme.php:validation
+#: theme_name;validation temp_name;validation center_theme;validation
+#: header_theme;validation left_theme;validation right_theme;validation
+#: footer_theme;validation Model/PageUserLink.php:validation
+#: Model/SchemaMigration.php:validation class;validation type
+msgid "notEmpty"
+msgstr "空ではありません"
+
+#: Model/Archive.php:validation for field parent_id;validation
+#: module_id;validation content_id;validation plugin_unique;validation
+#: status;validation user_group_id;validation access_hierarchy;validation
+#: count Model/Authority.php:validation hierarchy;validation
+#: allow_creating_community;validation myportal_use_flag;validation
+#: allow_myportal_viewing_hierarchy;validation private_use_flag;validation
+#: allow_style_flag;validation allow_attachment;validation max_size
+#: Model/AuthorityLang.php:validation authority_id
+#: Model/Background.php:validation group_num;validation file_width;validation
+#: file_height;validation file_size Model/BlocksLanguage.php:validation
+#: block_id;validation language_id Model/Config.php:validation
+#: category;validation minlength;validation maxlength
+#: Model/ConfigLang.php:validation module_id Model/Content.php:validation
+#: shortcut_type;validation root;validation room_num;validation display_flag
+#: Model/GroupsLanguage.php:validation group_id;validation
+#: Model/GroupsPartsUser.php:validation user_id;validation part_id
+#: Model/GroupsUser.php:validation user_id Model/Language.php:validation
+#: display_sequence;validation Model/LanguagesPage.php:validation
+#: page_id;validation Model/LanguagesPart.php:validation part_id;validation
+#: Model/LanguagesRole.php:validation role_id;validation
+#: Model/LanguagesSiteSetting.php:validation site_setting_id;validation
+#: Model/LanguagesUserAttribute.php:validation user_attribute_id;validation
+#: Model/LanguagesUserAttributesUser.php:validation
+#: Model/LanguagesUserSelectAttribute.php:validation
+#: user_select_attribute_id;validation Model/PageColumn.php:validation
+#: scope;validation type;validation space_type;validation
+#: header_page;validation left_page;validation right_page;validation
+#: footer_page Model/PageLayout.php:validation space_type
+#: Model/PageMeta.php:validation Model/PageStyle.php:validation
+#: Model/PageSumView.php:validation sum Model/PageTheme.php:validation
+#: Model/PageTree.php:validation child;validation stratum_num
+#: Model/PageUserLink.php:validation Model/PartsRoomsUser.php:validation
+#: room_id;validation Model/RolesPlugin.php:validation plugin_id
+#: Model/RolesUserAttribute.php:validation user_attribute_id
+#: Model/Room.php:validation group_id Model/SiteSettingValue.php:validation
+#: site_setting_id
+#: Plugin/AccessCounters/Model/AccessCountersFormat.php:validation is_original
+#: Plugin/Announcements/Model/Announcement.php:validation
+#: announcements_block_id;validation language_id;validation modified_user
+#: Plugin/Announcements/Model/AnnouncementNotification.php:validation
+#: notification_type;validation created_user;validation
+#: Plugin/Announcements/Model/AnnouncementSetting.php:validation
+#: Plugin/Announcements/Model/AnnouncementsBlock.php:validation
+#: Plugin/Roles/Model/PluginsRole.php:validation
+#: Plugin/Rooms/Model/PluginsRoom.php:validation
+#: Plugin/ThemeSettings/Model/ThemeSettingsSiteValue.php:validation
+#: Plugin/Users/Model/User.php:validation role_id
+#: Plugin/Users/Model/UserAttributesUser.php:validation
+#: Plugin/Users/Model/UserSelectAttributesUser.php:validation
+#: user_select_attribute_id
+msgid "numeric"
+msgstr "数値"
+
+#: Model/Archive.php:validation for field is_approved
+#: Model/Authority.php:validation system_flag;validation
+#: allow_new_participant;validation public_createroom_flag;validation
+#: group_createroom_flag;validation myportal_createroom_flag;validation
+#: private_createroom_flag;validation allow_htmltag_flag;validation
+#: allow_meta_flag;validation allow_theme_flag;validation
+#: allow_layout_flag;validation allow_column_flag;validation
+#: allow_video;validation change_leftcolumn_flag;validation
+#: change_rightcolumn_flag;validation change_headercolumn_flag;validation
+#: change_footercolumn_flag;validation display_participants_editing;validation
+#: allow_move_operation;validation allow_copy_operation;validation
+#: allow_shortcut_operation;validation allow_operation_of_shortcut
+#: Model/Config.php:validation required;validation lang_flag
+#: Model/Content.php:validation Model/PageLayout.php:validation
+#: is_display_header;validation is_display_left;validation
+#: is_display_right;validation is_display_footer
+msgid "boolean"
+msgstr "真偽値"
+
+#: Model/BlocksLanguage.php:validation for field name
+msgid "Please be sure to input."
+msgstr "必ず入力してください。"
+
+#: Model/DatabaseConfiguration.php:validation for field datasource;validation
+#: persistent;validation host;validation port;validation database;validation
+#: schema;validation prefix;validation login;validation password
+#: Plugin/Users/Model/User.php:validation username;validation
+msgid "Invalid value"
+msgstr "無効値"
+
+#: Model/DatabaseConfiguration.php:validation for field datasource
+msgid "allowedChoice"
+msgstr "許可されている選択肢"
+
+#: Model/RolesPlugin.php:validation for field role_id
+msgid "datetime"
+msgstr "日時"
+
+#: Plugin/AccessCounters/Model/AccessCounter.php:validation for field block_id
+#: Plugin/AccessCounters/Model/AccessCountersCount.php:validation
+msgid "Security Error! Unauthorized input. (block_id)"
+msgstr "セキュリティエラー！無許可入力（BLOCK_ID）"
+
+#: Plugin/AccessCounters/Model/AccessCounter.php:validation for field
+#: created_user_id
+#: Plugin/AccessCounters/Model/AccessCountersCount.php:validation
+#: Plugin/AccessCounters/Model/AccessCountersFormat.php:validation
+msgid "Security Error! Unauthorized input. (created_user_id)"
+msgstr "セキュリティエラー！無許可入力 (created_user_id)"
+
+#: Plugin/AccessCounters/Model/AccessCounter.php:validation for field
+#: modified_user_id
+#: Plugin/AccessCounters/Model/AccessCountersCount.php:validation
+#: Plugin/AccessCounters/Model/AccessCountersFormat.php:validation
+msgid "Security Error! Unauthorized input. (modified_user_id)"
+msgstr "セキュリティエラー！無許可入力 (modified_user_id)"
+
+#: Plugin/AccessCounters/Model/AccessCountersCount.php:validation for field
+#: access_counter_id
+#: Plugin/AccessCounters/Model/AccessCountersFormat.php:validation
+msgid "Security Error! Unauthorized input. (access_counter_id)"
+msgstr "セキュリティエラー！無許可入力 (access_counter_id)"
+
+#: Plugin/AccessCounters/Model/AccessCountersCount.php:validation for field
+#: language_id
+msgid "Security Error! Unauthorized input. (language_id)"
+msgstr "セキュリティエラー！無許可入力  (language_id)"
+
+#: Plugin/AccessCounters/Model/AccessCountersCount.php:validation for field
+#: access_count
+msgid "Security Error! Unauthorized input. (access_count)"
+msgstr "セキュリティエラー！無許可入力  (access_count)"
+
+#: Plugin/AccessCounters/Model/AccessCountersFormat.php:validation for field
+#: status_id
+msgid "The input `status_id` must be a number bigger than 4 and less than 1."
+msgstr "入力値`status_id`は4よりも大きく、1文字である必要があります。"
+
+#: Plugin/AccessCounters/Model/AccessCountersFormat.php:validation for field
+#: show_number_image
+msgid "Please select image."
+msgstr "画像を選択してください。"
+
+#: Plugin/AccessCounters/Model/AccessCountersFormat.php:validation for field
+#: show_digit_number
+msgid ""
+"The input `show_digit_number` must be a number bigger than 10 and less than "
+"1."
+msgstr "入力`show_digit_number`は10より大きく、1未満である必要があります。"
+
+#: Plugin/Announcements/Model/Announcement.php:validation for field
+#: translation_engine
+msgid "maxLength"
+msgstr "最大の長さ"
+
+#: Model/Notepad.php:validation for field notepads_block_id;validation
+#: status;validation language_id Model/NotepadPartSetting.php:validation
+#: part_id;validation readable_content;validation editable_content;validation
+#: creatable_content;validation publishable_content
+#: Model/NotepadSetting.php:validation notepads_block_id
+#: Model/NotepadsBlock.php:validation block_id
+msgid "Security Error! Unauthorized input."
+msgstr "セキュリティエラー！無許可入力"
+
+#: Plugin/Pages/Model/Page.php:validation for field permalink
+msgid "Permalink is already in use."
+msgstr "固定リンクは既に使用されています。"
+
+#: Plugin/Pages/Model/Page.php:validation for field from;validation to
+msgid "Please enter a valid date and time."
+msgstr "有効な日付と時刻を入力してください。"
+
+#: Plugin/ThemeSettings/Model/ThemeSettingsSiteValue.php:validation for field
+#: value
+msgid "Please enter the number or alphabet."
+msgstr "番号またはアルファベットを入力してください。"
+
+#: Plugin/ThemeSettings/Model/ThemeSettingsSiteValue.php:validation for field
+#: value
+msgid "Please input of one or more characters."
+msgstr "1文字以上の入力してください。"
+
+#: Plugin/Users/Model/User.php:validation for field password_again
+msgid "Password does not match"
+msgstr "パスワードが一致しません"

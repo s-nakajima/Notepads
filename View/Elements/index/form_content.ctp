@@ -18,7 +18,7 @@
 	<div class='form-group'>
 		<?php
 			//タイトル
-			echo $this->Form->label('Notepad.title', __('Title'));
+			echo $this->Form->label('Notepad.title', __d('notepads', 'Title'));
 
 			echo $this->Form->input('Notepad.title', array(
 						'label' => false,
@@ -32,7 +32,7 @@
 	<div class='form-group'>
 		<?php
 			//内容
-			echo $this->Form->label('Notepad.content', __('Content'));
+			echo $this->Form->label('Notepad.content', __d('notepads', 'Content'));
 
 			echo $this->Form->input('Notepad.content', array(
 						'label' => false,

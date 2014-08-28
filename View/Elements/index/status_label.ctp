@@ -17,7 +17,7 @@
 		  ng-class="{hidden: notepad.Notepad.status === <?php echo Notepad::STATUS_PUBLISH ?>}"
 		  ng-show="Label.publish"
 	>
-		<?php echo __('Publish'); ?>
+		<?php echo __d('notepads', 'Publish'); ?>
 	</span>
 
 	<span class="label label-info ng-hide"
@@ -25,7 +25,7 @@
 		  ng-class="{hidden: notepad.Notepad.status === <?php echo Notepad::STATUS_APPROVAL ?>}"
 		  ng-show="Label.approval"
 	>
-		<?php echo __('Approval'); ?>
+		<?php echo __d('notepads', 'Approval'); ?>
 	</span>
 
 	<span class="label label-info ng-hide"
@@ -33,7 +33,7 @@
 		  ng-class="{hidden: notepad.Notepad.status === <?php echo Notepad::STATUS_DRAFT ?>}"
 		  ng-show="Label.draft"
 	>
-		<?php echo __('Draft'); ?>
+		<?php echo __d('notepads', 'Draft'); ?>
 	</span>
 
 	<span class="label label-info ng-hide"
@@ -41,7 +41,7 @@
 		  ng-class="{hidden: notepad.Notepad.status === <?php echo Notepad::STATUS_DISAPPROVAL ?>}"
 		  ng-show="Label.disapproval"
 	>
-		<?php echo __('Disapproval'); ?>
+		<?php echo __d('notepads', 'Disapproval'); ?>
 	</span>
 
 </div>

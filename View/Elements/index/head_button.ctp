@@ -16,7 +16,7 @@
 		<button class="btn btn-default ng-disabled"
 				ng-click="showBlockSetting()" ng-disabled="sendLock">
 			<span class="glyphicon glyphicon-cog">
-				<?php echo __('Block setting'); ?>
+				<?php echo __d('notepads', 'Block setting'); ?>
 			</span>
 		</button>
 	<?php endif; ?>
@@ -25,7 +25,7 @@
 		<button class="btn btn-primary"
 				ng-click="showSetting()" ng-disabled="sendLock">
 			<span class="glyphicon glyphicon-pencil">
-				<?php echo __('Edit'); ?>
+				<?php echo __d('notepads', 'Edit'); ?>
 			</span>
 		</button>
 	<?php endif; ?>
@@ -34,7 +34,7 @@
 		<button class="btn btn-danger ng-hide"
 				ng-show="Label.approval" ng-click="post('Publish')" ng-disabled="sendLock">
 			<span class="glyphicon glyphicon-share-alt">
-				<?php echo __('Publish'); ?>
+				<?php echo __d('notepads', 'Publish'); ?>
 			</span>
 		</button>
 	<?php endif; ?>

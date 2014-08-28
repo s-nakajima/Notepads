@@ -1,0 +1,241 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2014-08-28 02:49+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/NotepadsController.php:150;157;169
+msgid "I failed to save"
+msgstr ""
+
+#: Controller/NotepadsController.php:171
+#: View/Notepads/view.ctp:12
+msgid "Saved"
+msgstr ""
+
+#: View/Elements/index/form_button.ctp:17
+msgid "Cancel"
+msgstr ""
+
+#: View/Elements/index/form_button.ctp:24
+msgid "Preview"
+msgstr ""
+
+#: View/Elements/index/form_button.ctp:31
+msgid "Close Preview"
+msgstr ""
+
+#: View/Elements/index/form_button.ctp:38
+#: View/Elements/index/status_label.ctp:36
+msgid "Draft"
+msgstr ""
+
+#: View/Elements/index/form_button.ctp:45
+#: View/Elements/index/status_label.ctp:44
+msgid "Disapproval"
+msgstr ""
+
+#: View/Elements/index/form_button.ctp:52
+#: View/Elements/index/status_label.ctp:28
+msgid "Approval"
+msgstr ""
+
+#: View/Elements/index/form_button.ctp:59
+#: View/Elements/index/head_button.ctp:37
+#: View/Elements/index/status_label.ctp:20
+msgid "Publish"
+msgstr ""
+
+#: View/Elements/index/form_content.ctp:21
+msgid "Title"
+msgstr ""
+
+#: View/Elements/index/form_content.ctp:35
+msgid "Content"
+msgstr ""
+
+#: View/Elements/index/head_button.ctp:19
+msgid "Block setting"
+msgstr ""
+
+#: View/Elements/index/head_button.ctp:28
+msgid "Edit"
+msgstr ""
+
+#: View/Notepads/view.ctp:13
+msgid "Installed"
+msgstr ""
+
+#: Model/Archive.php:validation for field parent_model_name;validation for field model_name;validation for field title;validation for field content;validation for field search_content;validation for field url;validation for field created_user_name;validation for field modified_user_name
+#: Model/Authority.php:validation for field default_name;validation for field created_user_name;validation for field modified_user_name
+#: Model/AuthorityLang.php:validation for field lang;validation for field name;validation for field created_user_name;validation for field modified_user_name
+#: Model/Background.php:validation for field type;validation for field name;validation for field category;validation for field color;validation for field file_path
+#: Model/Config.php:validation for field name;validation for field type;validation for field title;validation for field value;validation for field description;validation for field options;validation for field domain;validation for field attribute;validation for field regexp;validation for field created_user_name;validation for field modified_user_name
+#: Model/ConfigLang.php:validation for field config_name;validation for field lang;validation for field value;validation for field created_user_name;validation for field modified_user_name
+#: Model/Content.php:validation for field title;validation for field url;validation for field created_user_name;validation for field modified_user_name
+#: Model/Language.php:validation for field display_name
+#: Model/PageColumn.php:validation for field lang;validation for field created_user_name;validation for field modified_user_name
+#: Model/PageLayout.php:validation for field lang;validation for field created_user_name;validation for field modified_user_name
+#: Model/PageMeta.php:validation for field lang;validation for field created_user_name;validation for field modified_user_name
+#: Model/PageStyle.php:validation for field lang;validation for field align;validation for field width;validation for field height;validation for field original_background_image;validation for field original_background_repeat;validation for field original_background_position;validation for field original_background_attachment;validation for field file;validation for field created_user_name;validation for field modified_user_name
+#: Model/PageSumView.php:validation for field created_user_name;validation for field modified_user_name
+#: Model/PageTheme.php:validation for field lang;validation for field theme_name;validation for field temp_name;validation for field center_theme;validation for field header_theme;validation for field left_theme;validation for field right_theme;validation for field footer_theme;validation for field created_user_name;validation for field modified_user_name
+#: Model/PageUserLink.php:validation for field created_user_name;validation for field modified_user_name
+#: Model/SchemaMigration.php:validation for field class;validation for field type
+msgid "notEmpty"
+msgstr ""
+
+#: Model/Archive.php:validation for field parent_id;validation for field module_id;validation for field content_id;validation for field plugin_unique;validation for field status;validation for field user_group_id;validation for field access_hierarchy;validation for field count
+#: Model/Authority.php:validation for field hierarchy;validation for field allow_creating_community;validation for field myportal_use_flag;validation for field allow_myportal_viewing_hierarchy;validation for field private_use_flag;validation for field allow_style_flag;validation for field allow_attachment;validation for field max_size
+#: Model/AuthorityLang.php:validation for field authority_id
+#: Model/Background.php:validation for field group_num;validation for field file_width;validation for field file_height;validation for field file_size
+#: Model/BlocksLanguage.php:validation for field block_id;validation for field language_id
+#: Model/Config.php:validation for field module_id;validation for field category;validation for field minlength;validation for field maxlength
+#: Model/ConfigLang.php:validation for field module_id
+#: Model/Content.php:validation for field module_id;validation for field shortcut_type;validation for field root;validation for field room_num;validation for field display_flag
+#: Model/GroupsLanguage.php:validation for field group_id;validation for field language_id
+#: Model/GroupsPartsUser.php:validation for field group_id;validation for field user_id;validation for field part_id
+#: Model/GroupsUser.php:validation for field group_id;validation for field user_id
+#: Model/Language.php:validation for field display_sequence;validation for field display_flag
+#: Model/LanguagesPage.php:validation for field page_id;validation for field language_id
+#: Model/LanguagesPart.php:validation for field part_id;validation for field language_id
+#: Model/LanguagesRole.php:validation for field role_id;validation for field language_id
+#: Model/LanguagesSiteSetting.php:validation for field site_setting_id;validation for field language_id
+#: Model/LanguagesUserAttribute.php:validation for field user_attribute_id;validation for field language_id
+#: Model/LanguagesUserAttributesUser.php:validation for field user_id;validation for field user_attribute_id;validation for field language_id
+#: Model/LanguagesUserSelectAttribute.php:validation for field user_select_attribute_id;validation for field language_id
+#: Model/PageColumn.php:validation for field scope;validation for field type;validation for field space_type;validation for field header_page;validation for field left_page;validation for field right_page;validation for field footer_page
+#: Model/PageLayout.php:validation for field scope;validation for field type;validation for field space_type
+#: Model/PageMeta.php:validation for field scope;validation for field type;validation for field space_type
+#: Model/PageStyle.php:validation for field scope;validation for field type;validation for field space_type
+#: Model/PageSumView.php:validation for field user_id;validation for field page_id;validation for field sum
+#: Model/PageTheme.php:validation for field scope;validation for field type;validation for field space_type
+#: Model/PageTree.php:validation for field parent_id;validation for field child;validation for field stratum_num
+#: Model/PageUserLink.php:validation for field room_num;validation for field user_id;validation for field authority_id
+#: Model/PartsRoomsUser.php:validation for field room_id;validation for field user_id;validation for field part_id
+#: Model/RolesPlugin.php:validation for field plugin_id
+#: Model/RolesUserAttribute.php:validation for field role_id;validation for field user_attribute_id
+#: Model/Room.php:validation for field group_id
+#: Model/SiteSettingValue.php:validation for field site_setting_id
+#: Plugin/AccessCounters/Model/AccessCountersFormat.php:validation for field is_original
+#: Plugin/Announcements/Model/Announcement.php:validation for field announcements_block_id;validation for field status;validation for field language_id;validation for field modified_user
+#: Plugin/Announcements/Model/AnnouncementNotification.php:validation for field block_id;validation for field language_id;validation for field notification_type;validation for field created_user;validation for field modified_user
+#: Plugin/Announcements/Model/AnnouncementSetting.php:validation for field block_id;validation for field created_user;validation for field modified_user
+#: Plugin/Announcements/Model/AnnouncementsBlock.php:validation for field block_id;validation for field created_user;validation for field modified_user
+#: Plugin/Roles/Model/PluginsRole.php:validation for field role_id;validation for field plugin_id
+#: Plugin/Rooms/Model/PluginsRoom.php:validation for field role_id;validation for field plugin_id
+#: Plugin/ThemeSettings/Model/ThemeSettingsSiteValue.php:validation for field site_setting_id
+#: Plugin/Users/Model/User.php:validation for field role_id
+#: Plugin/Users/Model/UserAttributesUser.php:validation for field user_id;validation for field user_attribute_id
+#: Plugin/Users/Model/UserSelectAttributesUser.php:validation for field user_id;validation for field user_select_attribute_id
+msgid "numeric"
+msgstr ""
+
+#: Model/Archive.php:validation for field is_approved
+#: Model/Authority.php:validation for field system_flag;validation for field allow_new_participant;validation for field public_createroom_flag;validation for field group_createroom_flag;validation for field myportal_createroom_flag;validation for field private_createroom_flag;validation for field allow_htmltag_flag;validation for field allow_meta_flag;validation for field allow_theme_flag;validation for field allow_layout_flag;validation for field allow_column_flag;validation for field allow_video;validation for field change_leftcolumn_flag;validation for field change_rightcolumn_flag;validation for field change_headercolumn_flag;validation for field change_footercolumn_flag;validation for field display_participants_editing;validation for field allow_move_operation;validation for field allow_copy_operation;validation for field allow_shortcut_operation;validation for field allow_operation_of_shortcut
+#: Model/Config.php:validation for field required;validation for field lang_flag
+#: Model/Content.php:validation for field is_approved
+#: Model/PageLayout.php:validation for field is_display_header;validation for field is_display_left;validation for field is_display_right;validation for field is_display_footer
+msgid "boolean"
+msgstr ""
+
+#: Model/BlocksLanguage.php:validation for field name
+msgid "Please be sure to input."
+msgstr ""
+
+#: Model/DatabaseConfiguration.php:validation for field datasource;validation for field persistent;validation for field host;validation for field port;validation for field database;validation for field schema;validation for field prefix;validation for field login;validation for field password
+#: Plugin/Users/Model/User.php:validation for field username;validation for field password
+msgid "Invalid value"
+msgstr ""
+
+#: Model/DatabaseConfiguration.php:validation for field datasource
+msgid "allowedChoice"
+msgstr ""
+
+#: Model/RolesPlugin.php:validation for field role_id
+msgid "datetime"
+msgstr ""
+
+#: Plugin/AccessCounters/Model/AccessCounter.php:validation for field block_id
+#: Plugin/AccessCounters/Model/AccessCountersCount.php:validation for field block_id
+msgid "Security Error! Unauthorized input. (block_id)"
+msgstr ""
+
+#: Plugin/AccessCounters/Model/AccessCounter.php:validation for field created_user_id
+#: Plugin/AccessCounters/Model/AccessCountersCount.php:validation for field created_user_id
+#: Plugin/AccessCounters/Model/AccessCountersFormat.php:validation for field created_user_id
+msgid "Security Error! Unauthorized input. (created_user_id)"
+msgstr ""
+
+#: Plugin/AccessCounters/Model/AccessCounter.php:validation for field modified_user_id
+#: Plugin/AccessCounters/Model/AccessCountersCount.php:validation for field modified_user_id
+#: Plugin/AccessCounters/Model/AccessCountersFormat.php:validation for field modified_user_id
+msgid "Security Error! Unauthorized input. (modified_user_id)"
+msgstr ""
+
+#: Plugin/AccessCounters/Model/AccessCountersCount.php:validation for field access_counter_id
+#: Plugin/AccessCounters/Model/AccessCountersFormat.php:validation for field access_counter_id
+msgid "Security Error! Unauthorized input. (access_counter_id)"
+msgstr ""
+
+#: Plugin/AccessCounters/Model/AccessCountersCount.php:validation for field language_id
+msgid "Security Error! Unauthorized input. (language_id)"
+msgstr ""
+
+#: Plugin/AccessCounters/Model/AccessCountersCount.php:validation for field access_count
+msgid "Security Error! Unauthorized input. (access_count)"
+msgstr ""
+
+#: Plugin/AccessCounters/Model/AccessCountersFormat.php:validation for field status_id
+msgid "The input `status_id` must be a number bigger than 4 and less than 1."
+msgstr ""
+
+#: Plugin/AccessCounters/Model/AccessCountersFormat.php:validation for field show_number_image
+msgid "Please select image."
+msgstr ""
+
+#: Plugin/AccessCounters/Model/AccessCountersFormat.php:validation for field show_digit_number
+msgid "The input `show_digit_number` must be a number bigger than 10 and less than 1."
+msgstr ""
+
+#: Plugin/Announcements/Model/Announcement.php:validation for field translation_engine
+msgid "maxLength"
+msgstr ""
+
+#: Model/Notepad.php:validation for field notepads_block_id;validation for field status;validation for field language_id
+#: Model/NotepadPartSetting.php:validation for field notepads_block_id;validation for field part_id;validation for field readable_content;validation for field editable_content;validation for field creatable_content;validation for field publishable_content
+#: Model/NotepadSetting.php:validation for field notepads_block_id
+#: Model/NotepadsBlock.php:validation for field block_id
+msgid "Security Error! Unauthorized input."
+msgstr ""
+
+#: Plugin/Pages/Model/Page.php:validation for field permalink
+msgid "Permalink is already in use."
+msgstr ""
+
+#: Plugin/Pages/Model/Page.php:validation for field from;validation for field to
+msgid "Please enter a valid date and time."
+msgstr ""
+
+#: Plugin/ThemeSettings/Model/ThemeSettingsSiteValue.php:validation for field value
+msgid "Please enter the number or alphabet."
+msgstr ""
+
+#: Plugin/ThemeSettings/Model/ThemeSettingsSiteValue.php:validation for field value
+msgid "Please input of one or more characters."
+msgstr ""
+
+#: Plugin/Users/Model/User.php:validation for field password_again
+msgid "Password does not match"
+msgstr ""
+

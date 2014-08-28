@@ -14,49 +14,49 @@
 <div class="text-center ng-hide" ng-show="Form.button">
 	<button class="btn btn-default"
 			ng-disabled="sendLock" ng-click="hideSetting()">
-		<span> <?php echo __('Cancel'); ?> </span>
+		<span> <?php echo __d('notepads', 'Cancel'); ?> </span>
 	</button>
 
 	<button class="btn btn-default"
 			ng-click="showPreview()" ng-hide="Preview.display" ng-disabled="sendLock">
 
 		<span class="glyphicon glyphicon-file"></span>
-		<span><?php echo __('Preview'); ?></span>
+		<span><?php echo __d('notepads', 'Preview'); ?></span>
 	</button>
 
 	<button class="btn btn-default"
 			ng-click="hidePreview()" ng-show="Preview.display" ng-disabled="sendLock">
 
 		<span class="glyphicon glyphicon-file"></span>
-		<span><?php echo __('Close Preview'); ?></span>
+		<span><?php echo __d('notepads', 'Close Preview'); ?></span>
 	</button>
 
 	<button class="btn btn-default"
 			ng-click="post('Draft')" ng-hide="Label.approval" ng-disabled="sendLock">
 
 		<span class="glyphicon glyphicon-pencil"></span>
-		<span><?php echo __('Draft'); ?></span>
+		<span><?php echo __d('notepads', 'Draft'); ?></span>
 	</button>
 
 	<button class="btn btn-default"
 			ng-click="post('disapproval')" ng-show="Label.approval" ng-disabled="sendLock">
 
 		<span class="glyphicon glyphicon-pencil"></span>
-		<span><?php echo __('Disapproval'); ?></span>
+		<span><?php echo __d('notepads', 'Disapproval'); ?></span>
 	</button>
 
 	<?php if (! $contentPublishable) : ?>
 		<button class="btn btn-primary"
 				ng-click="post('approval')" ng-disabled="sendLock">
 			<span class="glyphicon glyphicon-share-alt"></span>
-			<span><?php echo __('Approval'); ?></span>
+			<span><?php echo __d('notepads', 'Approval'); ?></span>
 		</button>
 	<?php else : ?>
 		<button class="btn btn-primary"
 				ng-click="post('Publish')"	ng-disabled="sendLock">
 
 			<span class="glyphicon glyphicon-share-alt"></span>
-			<span><?php echo __('Publish'); ?></span>
+			<span><?php echo __d('notepads', 'Publish'); ?></span>
 		</button>
 	<?php endif; ?>
 </div>
